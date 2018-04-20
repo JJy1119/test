@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayPromotionMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPromotion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerId" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="Status" jdbcType="INTEGER" property="status" />
+    <result column="StartTime" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="EndTime" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="Scope" jdbcType="INTEGER" property="scope" />
+    <result column="Area" jdbcType="INTEGER" property="area" />
+    <result column="Platform" jdbcType="VARCHAR" property="platform" />
+    <result column="PlatformTag" jdbcType="VARCHAR" property="platformTag" />
+    <result column="Priority" jdbcType="INTEGER" property="priority" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="LastEditDate" jdbcType="TIMESTAMP" property="lastEditDate" />
+    <result column="LastEditUser" jdbcType="VARCHAR" property="lastEditUser" />
+    <result column="MiniAmount" jdbcType="DECIMAL" property="miniAmount" />
+    <result column="MaxAmount" jdbcType="DECIMAL" property="maxAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PartnerId, Name, Description, Status, StartTime, EndTime, Scope, Area, Platform, 
+    PlatformTag, Priority, CreateDate, CreateUser, LastEditDate, LastEditUser, MiniAmount, 
+    MaxAmount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_Promotion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_Promotion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPromotion">
+    insert into Pay_Promotion (Id, PartnerId, Name, 
+      Description, Status, StartTime, 
+      EndTime, Scope, Area, 
+      Platform, PlatformTag, Priority, 
+      CreateDate, CreateUser, LastEditDate, 
+      LastEditUser, MiniAmount, MaxAmount
+      )
+    values (#{id,jdbcType=INTEGER}, #{partnerId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{scope,jdbcType=INTEGER}, #{area,jdbcType=INTEGER}, 
+      #{platform,jdbcType=VARCHAR}, #{platformTag,jdbcType=VARCHAR}, #{priority,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{lastEditDate,jdbcType=TIMESTAMP}, 
+      #{lastEditUser,jdbcType=VARCHAR}, #{miniAmount,jdbcType=DECIMAL}, #{maxAmount,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPromotion">
+    insert into Pay_Promotion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="partnerId != null">
+        PartnerId,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+      <if test="startTime != null">
+        StartTime,
+      </if>
+      <if test="endTime != null">
+        EndTime,
+      </if>
+      <if test="scope != null">
+        Scope,
+      </if>
+      <if test="area != null">
+        Area,
+      </if>
+      <if test="platform != null">
+        Platform,
+      </if>
+      <if test="platformTag != null">
+        PlatformTag,
+      </if>
+      <if test="priority != null">
+        Priority,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="lastEditDate != null">
+        LastEditDate,
+      </if>
+      <if test="lastEditUser != null">
+        LastEditUser,
+      </if>
+      <if test="miniAmount != null">
+        MiniAmount,
+      </if>
+      <if test="maxAmount != null">
+        MaxAmount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTag != null">
+        #{platformTag,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastEditDate != null">
+        #{lastEditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditUser != null">
+        #{lastEditUser,jdbcType=VARCHAR},
+      </if>
+      <if test="miniAmount != null">
+        #{miniAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="maxAmount != null">
+        #{maxAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPromotion">
+    update Pay_Promotion
+    <set>
+      <if test="partnerId != null">
+        PartnerId = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        Status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        StartTime = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        EndTime = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scope != null">
+        Scope = #{scope,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        Area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        Platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTag != null">
+        PlatformTag = #{platformTag,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        Priority = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastEditDate != null">
+        LastEditDate = #{lastEditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditUser != null">
+        LastEditUser = #{lastEditUser,jdbcType=VARCHAR},
+      </if>
+      <if test="miniAmount != null">
+        MiniAmount = #{miniAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="maxAmount != null">
+        MaxAmount = #{maxAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPromotion">
+    update Pay_Promotion
+    set PartnerId = #{partnerId,jdbcType=INTEGER},
+      Name = #{name,jdbcType=VARCHAR},
+      Description = #{description,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=INTEGER},
+      StartTime = #{startTime,jdbcType=TIMESTAMP},
+      EndTime = #{endTime,jdbcType=TIMESTAMP},
+      Scope = #{scope,jdbcType=INTEGER},
+      Area = #{area,jdbcType=INTEGER},
+      Platform = #{platform,jdbcType=VARCHAR},
+      PlatformTag = #{platformTag,jdbcType=VARCHAR},
+      Priority = #{priority,jdbcType=INTEGER},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      LastEditDate = #{lastEditDate,jdbcType=TIMESTAMP},
+      LastEditUser = #{lastEditUser,jdbcType=VARCHAR},
+      MiniAmount = #{miniAmount,jdbcType=DECIMAL},
+      MaxAmount = #{maxAmount,jdbcType=DECIMAL}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPromotion">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerId" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="Status" jdbcType="INTEGER" property="status" />
+    <result column="StartTime" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="EndTime" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="Scope" jdbcType="INTEGER" property="scope" />
+    <result column="Area" jdbcType="INTEGER" property="area" />
+    <result column="Platform" jdbcType="VARCHAR" property="platform" />
+    <result column="PlatformTag" jdbcType="VARCHAR" property="platformTag" />
+    <result column="Priority" jdbcType="INTEGER" property="priority" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="LastEditDate" jdbcType="TIMESTAMP" property="lastEditDate" />
+    <result column="LastEditUser" jdbcType="VARCHAR" property="lastEditUser" />
+    <result column="MiniAmount" jdbcType="DECIMAL" property="miniAmount" />
+    <result column="MaxAmount" jdbcType="DECIMAL" property="maxAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PartnerId, Name, Description, Status, StartTime, EndTime, Scope, Area, Platform, 
+    PlatformTag, Priority, CreateDate, CreateUser, LastEditDate, LastEditUser, MiniAmount, 
+    MaxAmount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_Promotion
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_Promotion
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPromotion">
+    insert into Pay_Promotion (Id, PartnerId, Name, 
+      Description, Status, StartTime, 
+      EndTime, Scope, Area, 
+      Platform, PlatformTag, Priority, 
+      CreateDate, CreateUser, LastEditDate, 
+      LastEditUser, MiniAmount, MaxAmount
+      )
+    values (#{id,jdbcType=INTEGER}, #{partnerId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{scope,jdbcType=INTEGER}, #{area,jdbcType=INTEGER}, 
+      #{platform,jdbcType=VARCHAR}, #{platformTag,jdbcType=VARCHAR}, #{priority,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{lastEditDate,jdbcType=TIMESTAMP}, 
+      #{lastEditUser,jdbcType=VARCHAR}, #{miniAmount,jdbcType=DECIMAL}, #{maxAmount,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPromotion">
+    insert into Pay_Promotion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="partnerId != null">
+        PartnerId,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+      <if test="startTime != null">
+        StartTime,
+      </if>
+      <if test="endTime != null">
+        EndTime,
+      </if>
+      <if test="scope != null">
+        Scope,
+      </if>
+      <if test="area != null">
+        Area,
+      </if>
+      <if test="platform != null">
+        Platform,
+      </if>
+      <if test="platformTag != null">
+        PlatformTag,
+      </if>
+      <if test="priority != null">
+        Priority,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="lastEditDate != null">
+        LastEditDate,
+      </if>
+      <if test="lastEditUser != null">
+        LastEditUser,
+      </if>
+      <if test="miniAmount != null">
+        MiniAmount,
+      </if>
+      <if test="maxAmount != null">
+        MaxAmount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTag != null">
+        #{platformTag,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastEditDate != null">
+        #{lastEditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditUser != null">
+        #{lastEditUser,jdbcType=VARCHAR},
+      </if>
+      <if test="miniAmount != null">
+        #{miniAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="maxAmount != null">
+        #{maxAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPromotion">
+    update Pay_Promotion
+    <set>
+      <if test="partnerId != null">
+        PartnerId = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        Status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        StartTime = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        EndTime = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scope != null">
+        Scope = #{scope,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        Area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        Platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTag != null">
+        PlatformTag = #{platformTag,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        Priority = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastEditDate != null">
+        LastEditDate = #{lastEditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditUser != null">
+        LastEditUser = #{lastEditUser,jdbcType=VARCHAR},
+      </if>
+      <if test="miniAmount != null">
+        MiniAmount = #{miniAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="maxAmount != null">
+        MaxAmount = #{maxAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPromotion">
+    update Pay_Promotion
+    set PartnerId = #{partnerId,jdbcType=INTEGER},
+      Name = #{name,jdbcType=VARCHAR},
+      Description = #{description,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=INTEGER},
+      StartTime = #{startTime,jdbcType=TIMESTAMP},
+      EndTime = #{endTime,jdbcType=TIMESTAMP},
+      Scope = #{scope,jdbcType=INTEGER},
+      Area = #{area,jdbcType=INTEGER},
+      Platform = #{platform,jdbcType=VARCHAR},
+      PlatformTag = #{platformTag,jdbcType=VARCHAR},
+      Priority = #{priority,jdbcType=INTEGER},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      LastEditDate = #{lastEditDate,jdbcType=TIMESTAMP},
+      LastEditUser = #{lastEditUser,jdbcType=VARCHAR},
+      MiniAmount = #{miniAmount,jdbcType=DECIMAL},
+      MaxAmount = #{maxAmount,jdbcType=DECIMAL}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

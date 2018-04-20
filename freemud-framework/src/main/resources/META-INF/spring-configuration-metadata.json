@@ -1,0 +1,70 @@
+{
+  "groups": [
+    {
+      "name": "mozart.commons.macro",
+      "type": "cn.freemud.framework"
+    },
+    {
+       "name": "mozart.commons.network",
+       "type": "com.gznb.mozart.commons.configuration.NetworkConfig"
+    },
+    {
+      "name": "mozart.commons.memorycache",
+      "type": "com.gznb.mozart.commons.caching.memory.MemoryCacheOptions"
+    }
+  ],
+
+  "properties": [
+    {
+      "name": "mozart.commons.macro.app_group",
+      "type": "java.lang.String",
+      "description": "项目组CODE."
+      /*"defaultValue": "UTF-8"*/
+    },
+    {
+      "name": "mozart.commons.macro.app_name",
+      "type": "java.lang.String",
+      "description": "应用CODE"
+    },
+    {
+      "name": "mozart.commons.macro.version",
+      "type": "java.lang.String",
+      "description": "应用版本号"
+    },
+    {
+      "name": "mozart.commons.macro.app_display_name",
+      "type": "java.lang.String",
+      "description": "应用中文名"
+    },
+    {
+      "name": "mozart.commons.network.config",
+      "type": "java.util.List<com.gznb.mozart.commons.configuration.NetworkConfigItem>",
+      "description": "network配置数组."
+    },
+    {
+      "name": "mozart.commons.network.config.ips",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.gznb.mozart.commons.configuration.NetworkConfigItem",
+      "description": "IP段配置，如[10.66.2.*,  10.66.19.*, 10.66.48.*]"
+    },
+    {
+      "name": "mozart.commons.network.config.data_center",
+      "type": "java.lang.Integer",
+      "sourceType": "com.gznb.mozart.commons.configuration.NetworkConfigItem",
+      "description": "所属数据中心"
+    },
+    {
+      "name": "mozart.commons.memorycache.scan_frequency",
+      "type": "java.lang.Integer",
+      "description": "缓存过期的扫描频率(毫秒）"
+    },
+    {
+      "name": "mozart.commons.memorycache.compact",
+      "type": "java.lang.Boolean",
+      "description": "是否在内存紧张时进行内存收缩（强制过期一部分缓存）"
+    }
+  ],
+
+  "hints": [
+  ]
+}

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.StoreExtendMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.StoreExtend">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerid" />
+    <result column="NuomiTp" jdbcType="VARCHAR" property="nuomitp" />
+    <result column="StoreId" jdbcType="VARCHAR" property="storeid" />
+    <result column="NuomiMerchantId" jdbcType="VARCHAR" property="nuomimerchantid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerId, NuomiTp, StoreId, NuomiMerchantId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Store_Extend
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Store_Extend
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.StoreExtend">
+    insert into Store_Extend (ID, PartnerId, NuomiTp, 
+      StoreId, NuomiMerchantId)
+    values (#{id,jdbcType=BIGINT}, #{partnerid,jdbcType=INTEGER}, #{nuomitp,jdbcType=VARCHAR}, 
+      #{storeid,jdbcType=VARCHAR}, #{nuomimerchantid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.StoreExtend">
+    insert into Store_Extend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="partnerid != null">
+        PartnerId,
+      </if>
+      <if test="nuomitp != null">
+        NuomiTp,
+      </if>
+      <if test="storeid != null">
+        StoreId,
+      </if>
+      <if test="nuomimerchantid != null">
+        NuomiMerchantId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="partnerid != null">
+        #{partnerid,jdbcType=INTEGER},
+      </if>
+      <if test="nuomitp != null">
+        #{nuomitp,jdbcType=VARCHAR},
+      </if>
+      <if test="storeid != null">
+        #{storeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nuomimerchantid != null">
+        #{nuomimerchantid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.StoreExtend">
+    update Store_Extend
+    <set>
+      <if test="partnerid != null">
+        PartnerId = #{partnerid,jdbcType=INTEGER},
+      </if>
+      <if test="nuomitp != null">
+        NuomiTp = #{nuomitp,jdbcType=VARCHAR},
+      </if>
+      <if test="storeid != null">
+        StoreId = #{storeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nuomimerchantid != null">
+        NuomiMerchantId = #{nuomimerchantid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.StoreExtend">
+    update Store_Extend
+    set PartnerId = #{partnerid,jdbcType=INTEGER},
+      NuomiTp = #{nuomitp,jdbcType=VARCHAR},
+      StoreId = #{storeid,jdbcType=VARCHAR},
+      NuomiMerchantId = #{nuomimerchantid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.StoreExtend">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerid" />
+    <result column="NuomiTp" jdbcType="VARCHAR" property="nuomitp" />
+    <result column="StoreId" jdbcType="VARCHAR" property="storeid" />
+    <result column="NuomiMerchantId" jdbcType="VARCHAR" property="nuomimerchantid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerId, NuomiTp, StoreId, NuomiMerchantId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Store_Extend
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Store_Extend
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.StoreExtend">
+    insert into Store_Extend (ID, PartnerId, NuomiTp, 
+      StoreId, NuomiMerchantId)
+    values (#{id,jdbcType=BIGINT}, #{partnerid,jdbcType=INTEGER}, #{nuomitp,jdbcType=VARCHAR}, 
+      #{storeid,jdbcType=VARCHAR}, #{nuomimerchantid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.StoreExtend">
+    insert into Store_Extend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="partnerid != null">
+        PartnerId,
+      </if>
+      <if test="nuomitp != null">
+        NuomiTp,
+      </if>
+      <if test="storeid != null">
+        StoreId,
+      </if>
+      <if test="nuomimerchantid != null">
+        NuomiMerchantId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="partnerid != null">
+        #{partnerid,jdbcType=INTEGER},
+      </if>
+      <if test="nuomitp != null">
+        #{nuomitp,jdbcType=VARCHAR},
+      </if>
+      <if test="storeid != null">
+        #{storeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nuomimerchantid != null">
+        #{nuomimerchantid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.StoreExtend">
+    update Store_Extend
+    <set>
+      <if test="partnerid != null">
+        PartnerId = #{partnerid,jdbcType=INTEGER},
+      </if>
+      <if test="nuomitp != null">
+        NuomiTp = #{nuomitp,jdbcType=VARCHAR},
+      </if>
+      <if test="storeid != null">
+        StoreId = #{storeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nuomimerchantid != null">
+        NuomiMerchantId = #{nuomimerchantid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.StoreExtend">
+    update Store_Extend
+    set PartnerId = #{partnerid,jdbcType=INTEGER},
+      NuomiTp = #{nuomitp,jdbcType=VARCHAR},
+      StoreId = #{storeid,jdbcType=VARCHAR},
+      NuomiMerchantId = #{nuomimerchantid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

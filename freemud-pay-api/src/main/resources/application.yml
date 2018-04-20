@@ -1,0 +1,22 @@
+#redis
+spring:
+  redis:
+    host: 10.66.122.121
+    port: 6379
+    password: crs-3ka14uty:gByG65ydhk7J0213
+    pool:
+      max-active: 100
+  application:
+    name: freemud-pay
+
+framework:
+  memorycache:
+    scanFrequency: 1000
+    compact: true
+
+# druid
+#druid:
+#  stat:
+#    loginUsername: admin
+#    loginPassword: admin
+#    allowIp: 127.0.0.1

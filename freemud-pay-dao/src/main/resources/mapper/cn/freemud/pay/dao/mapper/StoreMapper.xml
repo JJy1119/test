@@ -1,0 +1,1718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.StoreMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.Store">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerID" jdbcType="INTEGER" property="partnerID" />
+    <result column="StoreID_Partner" jdbcType="VARCHAR" property="storeID_Partner" />
+    <result column="SignChar" jdbcType="VARCHAR" property="signChar" />
+    <result column="StoreName" jdbcType="VARCHAR" property="storeName" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="DistrictID" jdbcType="INTEGER" property="districtID" />
+    <result column="Location" jdbcType="VARCHAR" property="location" />
+    <result column="Location1" jdbcType="VARCHAR" property="location1" />
+    <result column="StoreImage" jdbcType="VARCHAR" property="storeImage" />
+    <result column="POSAmount" jdbcType="INTEGER" property="POSAmount" />
+    <result column="Blocked" jdbcType="INTEGER" property="blocked" />
+    <result column="BlockedDate" jdbcType="TIMESTAMP" property="blockedDate" />
+    <result column="BlockReason" jdbcType="VARCHAR" property="blockReason" />
+    <result column="AlipayAccountId" jdbcType="INTEGER" property="alipayAccountId" />
+    <result column="OldStoreName" jdbcType="VARCHAR" property="oldStoreName" />
+    <result column="MicroPayAccountId" jdbcType="INTEGER" property="microPayAccountId" />
+    <result column="BestpayAccountId" jdbcType="INTEGER" property="bestpayAccountId" />
+    <result column="DayspayAccountId" jdbcType="INTEGER" property="dayspayAccountId" />
+    <result column="AlertPhone" jdbcType="VARCHAR" property="alertPhone" />
+    <result column="TenpayAccountId" jdbcType="INTEGER" property="tenpayAccountId" />
+    <result column="YiFubaoAccountId" jdbcType="INTEGER" property="yiFubaoAccountId" />
+    <result column="JdPayAccountId" jdbcType="INTEGER" property="jdPayAccountId" />
+    <result column="BaifubaoAccountId" jdbcType="INTEGER" property="baifubaoAccountId" />
+    <result column="Province" jdbcType="VARCHAR" property="province" />
+    <result column="inuse" jdbcType="BIT" property="inuse" />
+    <result column="LakalaAccountId" jdbcType="INTEGER" property="lakalaAccountId" />
+    <result column="ShfftAccountId" jdbcType="INTEGER" property="shfftAccountId" />
+    <result column="WjikaAccountId" jdbcType="INTEGER" property="wjikaAccountId" />
+    <result column="MemberAccountId" jdbcType="INTEGER" property="memberAccountId" />
+    <result column="ICBCAccountId" jdbcType="INTEGER" property="ICBCAccountId" />
+    <result column="UnifyId" jdbcType="CHAR" property="unifyId" />
+    <result column="DepartmentID" jdbcType="VARCHAR" property="departmentID" />
+    <result column="NuoMiAccountId" jdbcType="VARCHAR" property="nuoMiAccountId" />
+    <result column="GouKaixinAccountId" jdbcType="INTEGER" property="gouKaixinAccountId" />
+    <result column="CCBAccountId" jdbcType="INTEGER" property="CCBAccountId" />
+    <result column="CardAccountId" jdbcType="INTEGER" property="cardAccountId" />
+    <result column="FubeiAccountId" jdbcType="INTEGER" property="fubeiAccountId" />
+    <result column="UnionPayAccountId" jdbcType="INTEGER" property="unionPayAccountId" />
+    <result column="APPAlipayAccountId" jdbcType="INTEGER" property="APPAlipayAccountId" />
+    <result column="AppMicroPayAccountId" jdbcType="INTEGER" property="appMicroPayAccountId" />
+    <result column="FeiFanPayAccountId" jdbcType="INTEGER" property="feiFanPayAccountId" />
+    <result column="OverSeaAlipayAccountId" jdbcType="INTEGER" property="overSeaAlipayAccountId" />
+    <result column="CmpayAccountId" jdbcType="INTEGER" property="cmpayAccountId" />
+    <result column="EbuyAccountId" jdbcType="INTEGER" property="ebuyAccountId" />
+    <result column="SwiftPassWXAccountId" jdbcType="INTEGER" property="swiftPassWXAccountId" />
+    <result column="SwiftPassAliAccountId" jdbcType="INTEGER" property="swiftPassAliAccountId" />
+    <result column="SwiftPassTenAccountId" jdbcType="INTEGER" property="swiftPassTenAccountId" />
+    <result column="OverSeaMicroPayAccountId" jdbcType="INTEGER" property="overSeaMicroPayAccountId" />
+    <result column="GZHMicroAccountId" jdbcType="INTEGER" property="GZHMicroAccountId" />
+    <result column="APPMicroAccountId" jdbcType="INTEGER" property="APPMicroAccountId" />
+    <result column="XCXMicroAccountId" jdbcType="INTEGER" property="XCXMicroAccountId" />
+    <result column="AliwapPayAccountId" jdbcType="INTEGER" property="aliwapPayAccountId" />
+    <result column="FinincalAccountId" jdbcType="INTEGER" property="finincalAccountId" />
+    <result column="WeBankWXPayAccountId" jdbcType="INTEGER" property="weBankWXPayAccountId" />
+    <result column="WeBankAliPayAccountId" jdbcType="INTEGER" property="weBankAliPayAccountId" />
+    <result column="PubPayAccountId" jdbcType="INTEGER" property="pubPayAccountId" />
+    <result column="MicroScanPayAccountId" jdbcType="INTEGER" property="microScanPayAccountId" />
+    <result column="AliScanPayAccountId" jdbcType="INTEGER" property="aliScanPayAccountId" />
+    <result column="SwiftPassAccountId" jdbcType="INTEGER" property="swiftPassAccountId" />
+    <result column="WeBankPayAccountId" jdbcType="INTEGER" property="weBankPayAccountId" />
+    <result column="MicroWapPayAccountId" jdbcType="INTEGER" property="microWapPayAccountId" />
+    <result column="TopUpMicroPayAccountId" jdbcType="INTEGER" property="topUpMicroPayAccountId" />
+    <result column="TopUpAlipayAccountId" jdbcType="INTEGER" property="topUpAlipayAccountId" />
+    <result column="StarPosPayAccountId" jdbcType="INTEGER" property="starPosPayAccountId" />
+    <result column="HKWechatPayAccountId" jdbcType="INTEGER" property="HKWechatPayAccountId" />
+    <result column="VeryStarPayAccountId" jdbcType="INTEGER" property="veryStarPayAccountId" />
+    <result column="OpenEPayAccountId" jdbcType="INTEGER" property="openEPayAccountId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerID, StoreID_Partner, SignChar, StoreName, Address, Phone, DistrictID, 
+    Location, Location1, StoreImage, POSAmount, Blocked, BlockedDate, BlockReason, AlipayAccountId, 
+    OldStoreName, MicroPayAccountId, BestpayAccountId, DayspayAccountId, AlertPhone, 
+    TenpayAccountId, YiFubaoAccountId, JdPayAccountId, BaifubaoAccountId, Province, inuse, 
+    LakalaAccountId, ShfftAccountId, WjikaAccountId, MemberAccountId, ICBCAccountId, 
+    UnifyId, DepartmentID, NuoMiAccountId, GouKaixinAccountId, CCBAccountId, CardAccountId, 
+    FubeiAccountId, UnionPayAccountId, APPAlipayAccountId, AppMicroPayAccountId, FeiFanPayAccountId, 
+    OverSeaAlipayAccountId, CmpayAccountId, EbuyAccountId, SwiftPassWXAccountId, SwiftPassAliAccountId, 
+    SwiftPassTenAccountId, OverSeaMicroPayAccountId, GZHMicroAccountId, APPMicroAccountId, 
+    XCXMicroAccountId, AliwapPayAccountId, FinincalAccountId, WeBankWXPayAccountId, WeBankAliPayAccountId, 
+    PubPayAccountId, MicroScanPayAccountId, AliScanPayAccountId, SwiftPassAccountId, 
+    WeBankPayAccountId, MicroWapPayAccountId, TopUpMicroPayAccountId, TopUpAlipayAccountId, 
+    StarPosPayAccountId, HKWechatPayAccountId, VeryStarPayAccountId, OpenEPayAccountId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Store
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Store
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.Store">
+    insert into Store (ID, PartnerID, StoreID_Partner, 
+      SignChar, StoreName, Address, 
+      Phone, DistrictID, Location, 
+      Location1, StoreImage, POSAmount, 
+      Blocked, BlockedDate, BlockReason, 
+      AlipayAccountId, OldStoreName, MicroPayAccountId, 
+      BestpayAccountId, DayspayAccountId, AlertPhone, 
+      TenpayAccountId, YiFubaoAccountId, JdPayAccountId, 
+      BaifubaoAccountId, Province, inuse, 
+      LakalaAccountId, ShfftAccountId, WjikaAccountId, 
+      MemberAccountId, ICBCAccountId, UnifyId, 
+      DepartmentID, NuoMiAccountId, GouKaixinAccountId, 
+      CCBAccountId, CardAccountId, FubeiAccountId, 
+      UnionPayAccountId, APPAlipayAccountId, 
+      AppMicroPayAccountId, FeiFanPayAccountId, 
+      OverSeaAlipayAccountId, CmpayAccountId, 
+      EbuyAccountId, SwiftPassWXAccountId, SwiftPassAliAccountId, 
+      SwiftPassTenAccountId, OverSeaMicroPayAccountId, 
+      GZHMicroAccountId, APPMicroAccountId, XCXMicroAccountId, 
+      AliwapPayAccountId, FinincalAccountId, 
+      WeBankWXPayAccountId, WeBankAliPayAccountId, 
+      PubPayAccountId, MicroScanPayAccountId, 
+      AliScanPayAccountId, SwiftPassAccountId, 
+      WeBankPayAccountId, MicroWapPayAccountId, 
+      TopUpMicroPayAccountId, TopUpAlipayAccountId, 
+      StarPosPayAccountId, HKWechatPayAccountId, 
+      VeryStarPayAccountId, OpenEPayAccountId
+      )
+    values (#{ID,jdbcType=INTEGER}, #{partnerID,jdbcType=INTEGER}, #{storeID_Partner,jdbcType=VARCHAR}, 
+      #{signChar,jdbcType=VARCHAR}, #{storeName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{districtID,jdbcType=INTEGER}, #{location,jdbcType=VARCHAR}, 
+      #{location1,jdbcType=VARCHAR}, #{storeImage,jdbcType=VARCHAR}, #{POSAmount,jdbcType=INTEGER}, 
+      #{blocked,jdbcType=INTEGER}, #{blockedDate,jdbcType=TIMESTAMP}, #{blockReason,jdbcType=VARCHAR}, 
+      #{alipayAccountId,jdbcType=INTEGER}, #{oldStoreName,jdbcType=VARCHAR}, #{microPayAccountId,jdbcType=INTEGER}, 
+      #{bestpayAccountId,jdbcType=INTEGER}, #{dayspayAccountId,jdbcType=INTEGER}, #{alertPhone,jdbcType=VARCHAR}, 
+      #{tenpayAccountId,jdbcType=INTEGER}, #{yiFubaoAccountId,jdbcType=INTEGER}, #{jdPayAccountId,jdbcType=INTEGER}, 
+      #{baifubaoAccountId,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, #{inuse,jdbcType=BIT}, 
+      #{lakalaAccountId,jdbcType=INTEGER}, #{shfftAccountId,jdbcType=INTEGER}, #{wjikaAccountId,jdbcType=INTEGER}, 
+      #{memberAccountId,jdbcType=INTEGER}, #{ICBCAccountId,jdbcType=INTEGER}, #{unifyId,jdbcType=CHAR}, 
+      #{departmentID,jdbcType=VARCHAR}, #{nuoMiAccountId,jdbcType=VARCHAR}, #{gouKaixinAccountId,jdbcType=INTEGER}, 
+      #{CCBAccountId,jdbcType=INTEGER}, #{cardAccountId,jdbcType=INTEGER}, #{fubeiAccountId,jdbcType=INTEGER}, 
+      #{unionPayAccountId,jdbcType=INTEGER}, #{APPAlipayAccountId,jdbcType=INTEGER}, 
+      #{appMicroPayAccountId,jdbcType=INTEGER}, #{feiFanPayAccountId,jdbcType=INTEGER}, 
+      #{overSeaAlipayAccountId,jdbcType=INTEGER}, #{cmpayAccountId,jdbcType=INTEGER}, 
+      #{ebuyAccountId,jdbcType=INTEGER}, #{swiftPassWXAccountId,jdbcType=INTEGER}, #{swiftPassAliAccountId,jdbcType=INTEGER}, 
+      #{swiftPassTenAccountId,jdbcType=INTEGER}, #{overSeaMicroPayAccountId,jdbcType=INTEGER}, 
+      #{GZHMicroAccountId,jdbcType=INTEGER}, #{APPMicroAccountId,jdbcType=INTEGER}, #{XCXMicroAccountId,jdbcType=INTEGER}, 
+      #{aliwapPayAccountId,jdbcType=INTEGER}, #{finincalAccountId,jdbcType=INTEGER}, 
+      #{weBankWXPayAccountId,jdbcType=INTEGER}, #{weBankAliPayAccountId,jdbcType=INTEGER}, 
+      #{pubPayAccountId,jdbcType=INTEGER}, #{microScanPayAccountId,jdbcType=INTEGER}, 
+      #{aliScanPayAccountId,jdbcType=INTEGER}, #{swiftPassAccountId,jdbcType=INTEGER}, 
+      #{weBankPayAccountId,jdbcType=INTEGER}, #{microWapPayAccountId,jdbcType=INTEGER}, 
+      #{topUpMicroPayAccountId,jdbcType=INTEGER}, #{topUpAlipayAccountId,jdbcType=INTEGER}, 
+      #{starPosPayAccountId,jdbcType=INTEGER}, #{HKWechatPayAccountId,jdbcType=INTEGER}, 
+      #{veryStarPayAccountId,jdbcType=INTEGER}, #{openEPayAccountId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.Store">
+    insert into Store
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerID != null">
+        PartnerID,
+      </if>
+      <if test="storeID_Partner != null">
+        StoreID_Partner,
+      </if>
+      <if test="signChar != null">
+        SignChar,
+      </if>
+      <if test="storeName != null">
+        StoreName,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="districtID != null">
+        DistrictID,
+      </if>
+      <if test="location != null">
+        Location,
+      </if>
+      <if test="location1 != null">
+        Location1,
+      </if>
+      <if test="storeImage != null">
+        StoreImage,
+      </if>
+      <if test="POSAmount != null">
+        POSAmount,
+      </if>
+      <if test="blocked != null">
+        Blocked,
+      </if>
+      <if test="blockedDate != null">
+        BlockedDate,
+      </if>
+      <if test="blockReason != null">
+        BlockReason,
+      </if>
+      <if test="alipayAccountId != null">
+        AlipayAccountId,
+      </if>
+      <if test="oldStoreName != null">
+        OldStoreName,
+      </if>
+      <if test="microPayAccountId != null">
+        MicroPayAccountId,
+      </if>
+      <if test="bestpayAccountId != null">
+        BestpayAccountId,
+      </if>
+      <if test="dayspayAccountId != null">
+        DayspayAccountId,
+      </if>
+      <if test="alertPhone != null">
+        AlertPhone,
+      </if>
+      <if test="tenpayAccountId != null">
+        TenpayAccountId,
+      </if>
+      <if test="yiFubaoAccountId != null">
+        YiFubaoAccountId,
+      </if>
+      <if test="jdPayAccountId != null">
+        JdPayAccountId,
+      </if>
+      <if test="baifubaoAccountId != null">
+        BaifubaoAccountId,
+      </if>
+      <if test="province != null">
+        Province,
+      </if>
+      <if test="inuse != null">
+        inuse,
+      </if>
+      <if test="lakalaAccountId != null">
+        LakalaAccountId,
+      </if>
+      <if test="shfftAccountId != null">
+        ShfftAccountId,
+      </if>
+      <if test="wjikaAccountId != null">
+        WjikaAccountId,
+      </if>
+      <if test="memberAccountId != null">
+        MemberAccountId,
+      </if>
+      <if test="ICBCAccountId != null">
+        ICBCAccountId,
+      </if>
+      <if test="unifyId != null">
+        UnifyId,
+      </if>
+      <if test="departmentID != null">
+        DepartmentID,
+      </if>
+      <if test="nuoMiAccountId != null">
+        NuoMiAccountId,
+      </if>
+      <if test="gouKaixinAccountId != null">
+        GouKaixinAccountId,
+      </if>
+      <if test="CCBAccountId != null">
+        CCBAccountId,
+      </if>
+      <if test="cardAccountId != null">
+        CardAccountId,
+      </if>
+      <if test="fubeiAccountId != null">
+        FubeiAccountId,
+      </if>
+      <if test="unionPayAccountId != null">
+        UnionPayAccountId,
+      </if>
+      <if test="APPAlipayAccountId != null">
+        APPAlipayAccountId,
+      </if>
+      <if test="appMicroPayAccountId != null">
+        AppMicroPayAccountId,
+      </if>
+      <if test="feiFanPayAccountId != null">
+        FeiFanPayAccountId,
+      </if>
+      <if test="overSeaAlipayAccountId != null">
+        OverSeaAlipayAccountId,
+      </if>
+      <if test="cmpayAccountId != null">
+        CmpayAccountId,
+      </if>
+      <if test="ebuyAccountId != null">
+        EbuyAccountId,
+      </if>
+      <if test="swiftPassWXAccountId != null">
+        SwiftPassWXAccountId,
+      </if>
+      <if test="swiftPassAliAccountId != null">
+        SwiftPassAliAccountId,
+      </if>
+      <if test="swiftPassTenAccountId != null">
+        SwiftPassTenAccountId,
+      </if>
+      <if test="overSeaMicroPayAccountId != null">
+        OverSeaMicroPayAccountId,
+      </if>
+      <if test="GZHMicroAccountId != null">
+        GZHMicroAccountId,
+      </if>
+      <if test="APPMicroAccountId != null">
+        APPMicroAccountId,
+      </if>
+      <if test="XCXMicroAccountId != null">
+        XCXMicroAccountId,
+      </if>
+      <if test="aliwapPayAccountId != null">
+        AliwapPayAccountId,
+      </if>
+      <if test="finincalAccountId != null">
+        FinincalAccountId,
+      </if>
+      <if test="weBankWXPayAccountId != null">
+        WeBankWXPayAccountId,
+      </if>
+      <if test="weBankAliPayAccountId != null">
+        WeBankAliPayAccountId,
+      </if>
+      <if test="pubPayAccountId != null">
+        PubPayAccountId,
+      </if>
+      <if test="microScanPayAccountId != null">
+        MicroScanPayAccountId,
+      </if>
+      <if test="aliScanPayAccountId != null">
+        AliScanPayAccountId,
+      </if>
+      <if test="swiftPassAccountId != null">
+        SwiftPassAccountId,
+      </if>
+      <if test="weBankPayAccountId != null">
+        WeBankPayAccountId,
+      </if>
+      <if test="microWapPayAccountId != null">
+        MicroWapPayAccountId,
+      </if>
+      <if test="topUpMicroPayAccountId != null">
+        TopUpMicroPayAccountId,
+      </if>
+      <if test="topUpAlipayAccountId != null">
+        TopUpAlipayAccountId,
+      </if>
+      <if test="starPosPayAccountId != null">
+        StarPosPayAccountId,
+      </if>
+      <if test="HKWechatPayAccountId != null">
+        HKWechatPayAccountId,
+      </if>
+      <if test="veryStarPayAccountId != null">
+        VeryStarPayAccountId,
+      </if>
+      <if test="openEPayAccountId != null">
+        OpenEPayAccountId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerID != null">
+        #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="storeID_Partner != null">
+        #{storeID_Partner,jdbcType=VARCHAR},
+      </if>
+      <if test="signChar != null">
+        #{signChar,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null">
+        #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="districtID != null">
+        #{districtID,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="location1 != null">
+        #{location1,jdbcType=VARCHAR},
+      </if>
+      <if test="storeImage != null">
+        #{storeImage,jdbcType=VARCHAR},
+      </if>
+      <if test="POSAmount != null">
+        #{POSAmount,jdbcType=INTEGER},
+      </if>
+      <if test="blocked != null">
+        #{blocked,jdbcType=INTEGER},
+      </if>
+      <if test="blockedDate != null">
+        #{blockedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blockReason != null">
+        #{blockReason,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayAccountId != null">
+        #{alipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="oldStoreName != null">
+        #{oldStoreName,jdbcType=VARCHAR},
+      </if>
+      <if test="microPayAccountId != null">
+        #{microPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="bestpayAccountId != null">
+        #{bestpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="dayspayAccountId != null">
+        #{dayspayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="alertPhone != null">
+        #{alertPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="tenpayAccountId != null">
+        #{tenpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="yiFubaoAccountId != null">
+        #{yiFubaoAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="jdPayAccountId != null">
+        #{jdPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="baifubaoAccountId != null">
+        #{baifubaoAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="inuse != null">
+        #{inuse,jdbcType=BIT},
+      </if>
+      <if test="lakalaAccountId != null">
+        #{lakalaAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="shfftAccountId != null">
+        #{shfftAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="wjikaAccountId != null">
+        #{wjikaAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="memberAccountId != null">
+        #{memberAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="ICBCAccountId != null">
+        #{ICBCAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="unifyId != null">
+        #{unifyId,jdbcType=CHAR},
+      </if>
+      <if test="departmentID != null">
+        #{departmentID,jdbcType=VARCHAR},
+      </if>
+      <if test="nuoMiAccountId != null">
+        #{nuoMiAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="gouKaixinAccountId != null">
+        #{gouKaixinAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="CCBAccountId != null">
+        #{CCBAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="cardAccountId != null">
+        #{cardAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="fubeiAccountId != null">
+        #{fubeiAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="unionPayAccountId != null">
+        #{unionPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="APPAlipayAccountId != null">
+        #{APPAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="appMicroPayAccountId != null">
+        #{appMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="feiFanPayAccountId != null">
+        #{feiFanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="overSeaAlipayAccountId != null">
+        #{overSeaAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="cmpayAccountId != null">
+        #{cmpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="ebuyAccountId != null">
+        #{ebuyAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassWXAccountId != null">
+        #{swiftPassWXAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassAliAccountId != null">
+        #{swiftPassAliAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassTenAccountId != null">
+        #{swiftPassTenAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="overSeaMicroPayAccountId != null">
+        #{overSeaMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="GZHMicroAccountId != null">
+        #{GZHMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="APPMicroAccountId != null">
+        #{APPMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="XCXMicroAccountId != null">
+        #{XCXMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="aliwapPayAccountId != null">
+        #{aliwapPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="finincalAccountId != null">
+        #{finincalAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankWXPayAccountId != null">
+        #{weBankWXPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankAliPayAccountId != null">
+        #{weBankAliPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="pubPayAccountId != null">
+        #{pubPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="microScanPayAccountId != null">
+        #{microScanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="aliScanPayAccountId != null">
+        #{aliScanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassAccountId != null">
+        #{swiftPassAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankPayAccountId != null">
+        #{weBankPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="microWapPayAccountId != null">
+        #{microWapPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="topUpMicroPayAccountId != null">
+        #{topUpMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="topUpAlipayAccountId != null">
+        #{topUpAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="starPosPayAccountId != null">
+        #{starPosPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="HKWechatPayAccountId != null">
+        #{HKWechatPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="veryStarPayAccountId != null">
+        #{veryStarPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="openEPayAccountId != null">
+        #{openEPayAccountId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.Store">
+    update Store
+    <set>
+      <if test="partnerID != null">
+        PartnerID = #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="storeID_Partner != null">
+        StoreID_Partner = #{storeID_Partner,jdbcType=VARCHAR},
+      </if>
+      <if test="signChar != null">
+        SignChar = #{signChar,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null">
+        StoreName = #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="districtID != null">
+        DistrictID = #{districtID,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        Location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="location1 != null">
+        Location1 = #{location1,jdbcType=VARCHAR},
+      </if>
+      <if test="storeImage != null">
+        StoreImage = #{storeImage,jdbcType=VARCHAR},
+      </if>
+      <if test="POSAmount != null">
+        POSAmount = #{POSAmount,jdbcType=INTEGER},
+      </if>
+      <if test="blocked != null">
+        Blocked = #{blocked,jdbcType=INTEGER},
+      </if>
+      <if test="blockedDate != null">
+        BlockedDate = #{blockedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blockReason != null">
+        BlockReason = #{blockReason,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayAccountId != null">
+        AlipayAccountId = #{alipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="oldStoreName != null">
+        OldStoreName = #{oldStoreName,jdbcType=VARCHAR},
+      </if>
+      <if test="microPayAccountId != null">
+        MicroPayAccountId = #{microPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="bestpayAccountId != null">
+        BestpayAccountId = #{bestpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="dayspayAccountId != null">
+        DayspayAccountId = #{dayspayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="alertPhone != null">
+        AlertPhone = #{alertPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="tenpayAccountId != null">
+        TenpayAccountId = #{tenpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="yiFubaoAccountId != null">
+        YiFubaoAccountId = #{yiFubaoAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="jdPayAccountId != null">
+        JdPayAccountId = #{jdPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="baifubaoAccountId != null">
+        BaifubaoAccountId = #{baifubaoAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        Province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="inuse != null">
+        inuse = #{inuse,jdbcType=BIT},
+      </if>
+      <if test="lakalaAccountId != null">
+        LakalaAccountId = #{lakalaAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="shfftAccountId != null">
+        ShfftAccountId = #{shfftAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="wjikaAccountId != null">
+        WjikaAccountId = #{wjikaAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="memberAccountId != null">
+        MemberAccountId = #{memberAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="ICBCAccountId != null">
+        ICBCAccountId = #{ICBCAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="unifyId != null">
+        UnifyId = #{unifyId,jdbcType=CHAR},
+      </if>
+      <if test="departmentID != null">
+        DepartmentID = #{departmentID,jdbcType=VARCHAR},
+      </if>
+      <if test="nuoMiAccountId != null">
+        NuoMiAccountId = #{nuoMiAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="gouKaixinAccountId != null">
+        GouKaixinAccountId = #{gouKaixinAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="CCBAccountId != null">
+        CCBAccountId = #{CCBAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="cardAccountId != null">
+        CardAccountId = #{cardAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="fubeiAccountId != null">
+        FubeiAccountId = #{fubeiAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="unionPayAccountId != null">
+        UnionPayAccountId = #{unionPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="APPAlipayAccountId != null">
+        APPAlipayAccountId = #{APPAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="appMicroPayAccountId != null">
+        AppMicroPayAccountId = #{appMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="feiFanPayAccountId != null">
+        FeiFanPayAccountId = #{feiFanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="overSeaAlipayAccountId != null">
+        OverSeaAlipayAccountId = #{overSeaAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="cmpayAccountId != null">
+        CmpayAccountId = #{cmpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="ebuyAccountId != null">
+        EbuyAccountId = #{ebuyAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassWXAccountId != null">
+        SwiftPassWXAccountId = #{swiftPassWXAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassAliAccountId != null">
+        SwiftPassAliAccountId = #{swiftPassAliAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassTenAccountId != null">
+        SwiftPassTenAccountId = #{swiftPassTenAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="overSeaMicroPayAccountId != null">
+        OverSeaMicroPayAccountId = #{overSeaMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="GZHMicroAccountId != null">
+        GZHMicroAccountId = #{GZHMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="APPMicroAccountId != null">
+        APPMicroAccountId = #{APPMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="XCXMicroAccountId != null">
+        XCXMicroAccountId = #{XCXMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="aliwapPayAccountId != null">
+        AliwapPayAccountId = #{aliwapPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="finincalAccountId != null">
+        FinincalAccountId = #{finincalAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankWXPayAccountId != null">
+        WeBankWXPayAccountId = #{weBankWXPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankAliPayAccountId != null">
+        WeBankAliPayAccountId = #{weBankAliPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="pubPayAccountId != null">
+        PubPayAccountId = #{pubPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="microScanPayAccountId != null">
+        MicroScanPayAccountId = #{microScanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="aliScanPayAccountId != null">
+        AliScanPayAccountId = #{aliScanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassAccountId != null">
+        SwiftPassAccountId = #{swiftPassAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankPayAccountId != null">
+        WeBankPayAccountId = #{weBankPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="microWapPayAccountId != null">
+        MicroWapPayAccountId = #{microWapPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="topUpMicroPayAccountId != null">
+        TopUpMicroPayAccountId = #{topUpMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="topUpAlipayAccountId != null">
+        TopUpAlipayAccountId = #{topUpAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="starPosPayAccountId != null">
+        StarPosPayAccountId = #{starPosPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="HKWechatPayAccountId != null">
+        HKWechatPayAccountId = #{HKWechatPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="veryStarPayAccountId != null">
+        VeryStarPayAccountId = #{veryStarPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="openEPayAccountId != null">
+        OpenEPayAccountId = #{openEPayAccountId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.Store">
+    update Store
+    set PartnerID = #{partnerID,jdbcType=INTEGER},
+      StoreID_Partner = #{storeID_Partner,jdbcType=VARCHAR},
+      SignChar = #{signChar,jdbcType=VARCHAR},
+      StoreName = #{storeName,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      DistrictID = #{districtID,jdbcType=INTEGER},
+      Location = #{location,jdbcType=VARCHAR},
+      Location1 = #{location1,jdbcType=VARCHAR},
+      StoreImage = #{storeImage,jdbcType=VARCHAR},
+      POSAmount = #{POSAmount,jdbcType=INTEGER},
+      Blocked = #{blocked,jdbcType=INTEGER},
+      BlockedDate = #{blockedDate,jdbcType=TIMESTAMP},
+      BlockReason = #{blockReason,jdbcType=VARCHAR},
+      AlipayAccountId = #{alipayAccountId,jdbcType=INTEGER},
+      OldStoreName = #{oldStoreName,jdbcType=VARCHAR},
+      MicroPayAccountId = #{microPayAccountId,jdbcType=INTEGER},
+      BestpayAccountId = #{bestpayAccountId,jdbcType=INTEGER},
+      DayspayAccountId = #{dayspayAccountId,jdbcType=INTEGER},
+      AlertPhone = #{alertPhone,jdbcType=VARCHAR},
+      TenpayAccountId = #{tenpayAccountId,jdbcType=INTEGER},
+      YiFubaoAccountId = #{yiFubaoAccountId,jdbcType=INTEGER},
+      JdPayAccountId = #{jdPayAccountId,jdbcType=INTEGER},
+      BaifubaoAccountId = #{baifubaoAccountId,jdbcType=INTEGER},
+      Province = #{province,jdbcType=VARCHAR},
+      inuse = #{inuse,jdbcType=BIT},
+      LakalaAccountId = #{lakalaAccountId,jdbcType=INTEGER},
+      ShfftAccountId = #{shfftAccountId,jdbcType=INTEGER},
+      WjikaAccountId = #{wjikaAccountId,jdbcType=INTEGER},
+      MemberAccountId = #{memberAccountId,jdbcType=INTEGER},
+      ICBCAccountId = #{ICBCAccountId,jdbcType=INTEGER},
+      UnifyId = #{unifyId,jdbcType=CHAR},
+      DepartmentID = #{departmentID,jdbcType=VARCHAR},
+      NuoMiAccountId = #{nuoMiAccountId,jdbcType=VARCHAR},
+      GouKaixinAccountId = #{gouKaixinAccountId,jdbcType=INTEGER},
+      CCBAccountId = #{CCBAccountId,jdbcType=INTEGER},
+      CardAccountId = #{cardAccountId,jdbcType=INTEGER},
+      FubeiAccountId = #{fubeiAccountId,jdbcType=INTEGER},
+      UnionPayAccountId = #{unionPayAccountId,jdbcType=INTEGER},
+      APPAlipayAccountId = #{APPAlipayAccountId,jdbcType=INTEGER},
+      AppMicroPayAccountId = #{appMicroPayAccountId,jdbcType=INTEGER},
+      FeiFanPayAccountId = #{feiFanPayAccountId,jdbcType=INTEGER},
+      OverSeaAlipayAccountId = #{overSeaAlipayAccountId,jdbcType=INTEGER},
+      CmpayAccountId = #{cmpayAccountId,jdbcType=INTEGER},
+      EbuyAccountId = #{ebuyAccountId,jdbcType=INTEGER},
+      SwiftPassWXAccountId = #{swiftPassWXAccountId,jdbcType=INTEGER},
+      SwiftPassAliAccountId = #{swiftPassAliAccountId,jdbcType=INTEGER},
+      SwiftPassTenAccountId = #{swiftPassTenAccountId,jdbcType=INTEGER},
+      OverSeaMicroPayAccountId = #{overSeaMicroPayAccountId,jdbcType=INTEGER},
+      GZHMicroAccountId = #{GZHMicroAccountId,jdbcType=INTEGER},
+      APPMicroAccountId = #{APPMicroAccountId,jdbcType=INTEGER},
+      XCXMicroAccountId = #{XCXMicroAccountId,jdbcType=INTEGER},
+      AliwapPayAccountId = #{aliwapPayAccountId,jdbcType=INTEGER},
+      FinincalAccountId = #{finincalAccountId,jdbcType=INTEGER},
+      WeBankWXPayAccountId = #{weBankWXPayAccountId,jdbcType=INTEGER},
+      WeBankAliPayAccountId = #{weBankAliPayAccountId,jdbcType=INTEGER},
+      PubPayAccountId = #{pubPayAccountId,jdbcType=INTEGER},
+      MicroScanPayAccountId = #{microScanPayAccountId,jdbcType=INTEGER},
+      AliScanPayAccountId = #{aliScanPayAccountId,jdbcType=INTEGER},
+      SwiftPassAccountId = #{swiftPassAccountId,jdbcType=INTEGER},
+      WeBankPayAccountId = #{weBankPayAccountId,jdbcType=INTEGER},
+      MicroWapPayAccountId = #{microWapPayAccountId,jdbcType=INTEGER},
+      TopUpMicroPayAccountId = #{topUpMicroPayAccountId,jdbcType=INTEGER},
+      TopUpAlipayAccountId = #{topUpAlipayAccountId,jdbcType=INTEGER},
+      StarPosPayAccountId = #{starPosPayAccountId,jdbcType=INTEGER},
+      HKWechatPayAccountId = #{HKWechatPayAccountId,jdbcType=INTEGER},
+      VeryStarPayAccountId = #{veryStarPayAccountId,jdbcType=INTEGER},
+      OpenEPayAccountId = #{openEPayAccountId,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.Store">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerID" jdbcType="INTEGER" property="partnerID" />
+    <result column="StoreID_Partner" jdbcType="VARCHAR" property="storeID_Partner" />
+    <result column="SignChar" jdbcType="VARCHAR" property="signChar" />
+    <result column="StoreName" jdbcType="VARCHAR" property="storeName" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="DistrictID" jdbcType="INTEGER" property="districtID" />
+    <result column="Location" jdbcType="VARCHAR" property="location" />
+    <result column="Location1" jdbcType="VARCHAR" property="location1" />
+    <result column="StoreImage" jdbcType="VARCHAR" property="storeImage" />
+    <result column="POSAmount" jdbcType="INTEGER" property="POSAmount" />
+    <result column="Blocked" jdbcType="INTEGER" property="blocked" />
+    <result column="BlockedDate" jdbcType="TIMESTAMP" property="blockedDate" />
+    <result column="BlockReason" jdbcType="VARCHAR" property="blockReason" />
+    <result column="AlipayAccountId" jdbcType="INTEGER" property="alipayAccountId" />
+    <result column="OldStoreName" jdbcType="VARCHAR" property="oldStoreName" />
+    <result column="MicroPayAccountId" jdbcType="INTEGER" property="microPayAccountId" />
+    <result column="BestpayAccountId" jdbcType="INTEGER" property="bestpayAccountId" />
+    <result column="DayspayAccountId" jdbcType="INTEGER" property="dayspayAccountId" />
+    <result column="AlertPhone" jdbcType="VARCHAR" property="alertPhone" />
+    <result column="TenpayAccountId" jdbcType="INTEGER" property="tenpayAccountId" />
+    <result column="YiFubaoAccountId" jdbcType="INTEGER" property="yiFubaoAccountId" />
+    <result column="JdPayAccountId" jdbcType="INTEGER" property="jdPayAccountId" />
+    <result column="BaifubaoAccountId" jdbcType="INTEGER" property="baifubaoAccountId" />
+    <result column="Province" jdbcType="VARCHAR" property="province" />
+    <result column="inuse" jdbcType="BIT" property="inuse" />
+    <result column="LakalaAccountId" jdbcType="INTEGER" property="lakalaAccountId" />
+    <result column="ShfftAccountId" jdbcType="INTEGER" property="shfftAccountId" />
+    <result column="WjikaAccountId" jdbcType="INTEGER" property="wjikaAccountId" />
+    <result column="MemberAccountId" jdbcType="INTEGER" property="memberAccountId" />
+    <result column="ICBCAccountId" jdbcType="INTEGER" property="ICBCAccountId" />
+    <result column="UnifyId" jdbcType="CHAR" property="unifyId" />
+    <result column="DepartmentID" jdbcType="VARCHAR" property="departmentID" />
+    <result column="NuoMiAccountId" jdbcType="VARCHAR" property="nuoMiAccountId" />
+    <result column="GouKaixinAccountId" jdbcType="INTEGER" property="gouKaixinAccountId" />
+    <result column="CCBAccountId" jdbcType="INTEGER" property="CCBAccountId" />
+    <result column="CardAccountId" jdbcType="INTEGER" property="cardAccountId" />
+    <result column="FubeiAccountId" jdbcType="INTEGER" property="fubeiAccountId" />
+    <result column="UnionPayAccountId" jdbcType="INTEGER" property="unionPayAccountId" />
+    <result column="APPAlipayAccountId" jdbcType="INTEGER" property="APPAlipayAccountId" />
+    <result column="AppMicroPayAccountId" jdbcType="INTEGER" property="appMicroPayAccountId" />
+    <result column="FeiFanPayAccountId" jdbcType="INTEGER" property="feiFanPayAccountId" />
+    <result column="OverSeaAlipayAccountId" jdbcType="INTEGER" property="overSeaAlipayAccountId" />
+    <result column="CmpayAccountId" jdbcType="INTEGER" property="cmpayAccountId" />
+    <result column="EbuyAccountId" jdbcType="INTEGER" property="ebuyAccountId" />
+    <result column="SwiftPassWXAccountId" jdbcType="INTEGER" property="swiftPassWXAccountId" />
+    <result column="SwiftPassAliAccountId" jdbcType="INTEGER" property="swiftPassAliAccountId" />
+    <result column="SwiftPassTenAccountId" jdbcType="INTEGER" property="swiftPassTenAccountId" />
+    <result column="OverSeaMicroPayAccountId" jdbcType="INTEGER" property="overSeaMicroPayAccountId" />
+    <result column="GZHMicroAccountId" jdbcType="INTEGER" property="GZHMicroAccountId" />
+    <result column="APPMicroAccountId" jdbcType="INTEGER" property="APPMicroAccountId" />
+    <result column="XCXMicroAccountId" jdbcType="INTEGER" property="XCXMicroAccountId" />
+    <result column="AliwapPayAccountId" jdbcType="INTEGER" property="aliwapPayAccountId" />
+    <result column="FinincalAccountId" jdbcType="INTEGER" property="finincalAccountId" />
+    <result column="WeBankWXPayAccountId" jdbcType="INTEGER" property="weBankWXPayAccountId" />
+    <result column="WeBankAliPayAccountId" jdbcType="INTEGER" property="weBankAliPayAccountId" />
+    <result column="PubPayAccountId" jdbcType="INTEGER" property="pubPayAccountId" />
+    <result column="MicroScanPayAccountId" jdbcType="INTEGER" property="microScanPayAccountId" />
+    <result column="AliScanPayAccountId" jdbcType="INTEGER" property="aliScanPayAccountId" />
+    <result column="SwiftPassAccountId" jdbcType="INTEGER" property="swiftPassAccountId" />
+    <result column="WeBankPayAccountId" jdbcType="INTEGER" property="weBankPayAccountId" />
+    <result column="MicroWapPayAccountId" jdbcType="INTEGER" property="microWapPayAccountId" />
+    <result column="TopUpMicroPayAccountId" jdbcType="INTEGER" property="topUpMicroPayAccountId" />
+    <result column="TopUpAlipayAccountId" jdbcType="INTEGER" property="topUpAlipayAccountId" />
+    <result column="StarPosPayAccountId" jdbcType="INTEGER" property="starPosPayAccountId" />
+    <result column="HKWechatPayAccountId" jdbcType="INTEGER" property="HKWechatPayAccountId" />
+    <result column="VeryStarPayAccountId" jdbcType="INTEGER" property="veryStarPayAccountId" />
+    <result column="OpenEPayAccountId" jdbcType="INTEGER" property="openEPayAccountId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerID, StoreID_Partner, SignChar, StoreName, Address, Phone, DistrictID, 
+    Location, Location1, StoreImage, POSAmount, Blocked, BlockedDate, BlockReason, AlipayAccountId, 
+    OldStoreName, MicroPayAccountId, BestpayAccountId, DayspayAccountId, AlertPhone, 
+    TenpayAccountId, YiFubaoAccountId, JdPayAccountId, BaifubaoAccountId, Province, inuse, 
+    LakalaAccountId, ShfftAccountId, WjikaAccountId, MemberAccountId, ICBCAccountId, 
+    UnifyId, DepartmentID, NuoMiAccountId, GouKaixinAccountId, CCBAccountId, CardAccountId, 
+    FubeiAccountId, UnionPayAccountId, APPAlipayAccountId, AppMicroPayAccountId, FeiFanPayAccountId, 
+    OverSeaAlipayAccountId, CmpayAccountId, EbuyAccountId, SwiftPassWXAccountId, SwiftPassAliAccountId, 
+    SwiftPassTenAccountId, OverSeaMicroPayAccountId, GZHMicroAccountId, APPMicroAccountId, 
+    XCXMicroAccountId, AliwapPayAccountId, FinincalAccountId, WeBankWXPayAccountId, WeBankAliPayAccountId, 
+    PubPayAccountId, MicroScanPayAccountId, AliScanPayAccountId, SwiftPassAccountId, 
+    WeBankPayAccountId, MicroWapPayAccountId, TopUpMicroPayAccountId, TopUpAlipayAccountId, 
+    StarPosPayAccountId, HKWechatPayAccountId, VeryStarPayAccountId, OpenEPayAccountId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Store
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Store
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.Store">
+    insert into Store (ID, PartnerID, StoreID_Partner, 
+      SignChar, StoreName, Address, 
+      Phone, DistrictID, Location, 
+      Location1, StoreImage, POSAmount, 
+      Blocked, BlockedDate, BlockReason, 
+      AlipayAccountId, OldStoreName, MicroPayAccountId, 
+      BestpayAccountId, DayspayAccountId, AlertPhone, 
+      TenpayAccountId, YiFubaoAccountId, JdPayAccountId, 
+      BaifubaoAccountId, Province, inuse, 
+      LakalaAccountId, ShfftAccountId, WjikaAccountId, 
+      MemberAccountId, ICBCAccountId, UnifyId, 
+      DepartmentID, NuoMiAccountId, GouKaixinAccountId, 
+      CCBAccountId, CardAccountId, FubeiAccountId, 
+      UnionPayAccountId, APPAlipayAccountId, 
+      AppMicroPayAccountId, FeiFanPayAccountId, 
+      OverSeaAlipayAccountId, CmpayAccountId, 
+      EbuyAccountId, SwiftPassWXAccountId, SwiftPassAliAccountId, 
+      SwiftPassTenAccountId, OverSeaMicroPayAccountId, 
+      GZHMicroAccountId, APPMicroAccountId, XCXMicroAccountId, 
+      AliwapPayAccountId, FinincalAccountId, 
+      WeBankWXPayAccountId, WeBankAliPayAccountId, 
+      PubPayAccountId, MicroScanPayAccountId, 
+      AliScanPayAccountId, SwiftPassAccountId, 
+      WeBankPayAccountId, MicroWapPayAccountId, 
+      TopUpMicroPayAccountId, TopUpAlipayAccountId, 
+      StarPosPayAccountId, HKWechatPayAccountId, 
+      VeryStarPayAccountId, OpenEPayAccountId
+      )
+    values (#{ID,jdbcType=INTEGER}, #{partnerID,jdbcType=INTEGER}, #{storeID_Partner,jdbcType=VARCHAR}, 
+      #{signChar,jdbcType=VARCHAR}, #{storeName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{districtID,jdbcType=INTEGER}, #{location,jdbcType=VARCHAR}, 
+      #{location1,jdbcType=VARCHAR}, #{storeImage,jdbcType=VARCHAR}, #{POSAmount,jdbcType=INTEGER}, 
+      #{blocked,jdbcType=INTEGER}, #{blockedDate,jdbcType=TIMESTAMP}, #{blockReason,jdbcType=VARCHAR}, 
+      #{alipayAccountId,jdbcType=INTEGER}, #{oldStoreName,jdbcType=VARCHAR}, #{microPayAccountId,jdbcType=INTEGER}, 
+      #{bestpayAccountId,jdbcType=INTEGER}, #{dayspayAccountId,jdbcType=INTEGER}, #{alertPhone,jdbcType=VARCHAR}, 
+      #{tenpayAccountId,jdbcType=INTEGER}, #{yiFubaoAccountId,jdbcType=INTEGER}, #{jdPayAccountId,jdbcType=INTEGER}, 
+      #{baifubaoAccountId,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, #{inuse,jdbcType=BIT}, 
+      #{lakalaAccountId,jdbcType=INTEGER}, #{shfftAccountId,jdbcType=INTEGER}, #{wjikaAccountId,jdbcType=INTEGER}, 
+      #{memberAccountId,jdbcType=INTEGER}, #{ICBCAccountId,jdbcType=INTEGER}, #{unifyId,jdbcType=CHAR}, 
+      #{departmentID,jdbcType=VARCHAR}, #{nuoMiAccountId,jdbcType=VARCHAR}, #{gouKaixinAccountId,jdbcType=INTEGER}, 
+      #{CCBAccountId,jdbcType=INTEGER}, #{cardAccountId,jdbcType=INTEGER}, #{fubeiAccountId,jdbcType=INTEGER}, 
+      #{unionPayAccountId,jdbcType=INTEGER}, #{APPAlipayAccountId,jdbcType=INTEGER}, 
+      #{appMicroPayAccountId,jdbcType=INTEGER}, #{feiFanPayAccountId,jdbcType=INTEGER}, 
+      #{overSeaAlipayAccountId,jdbcType=INTEGER}, #{cmpayAccountId,jdbcType=INTEGER}, 
+      #{ebuyAccountId,jdbcType=INTEGER}, #{swiftPassWXAccountId,jdbcType=INTEGER}, #{swiftPassAliAccountId,jdbcType=INTEGER}, 
+      #{swiftPassTenAccountId,jdbcType=INTEGER}, #{overSeaMicroPayAccountId,jdbcType=INTEGER}, 
+      #{GZHMicroAccountId,jdbcType=INTEGER}, #{APPMicroAccountId,jdbcType=INTEGER}, #{XCXMicroAccountId,jdbcType=INTEGER}, 
+      #{aliwapPayAccountId,jdbcType=INTEGER}, #{finincalAccountId,jdbcType=INTEGER}, 
+      #{weBankWXPayAccountId,jdbcType=INTEGER}, #{weBankAliPayAccountId,jdbcType=INTEGER}, 
+      #{pubPayAccountId,jdbcType=INTEGER}, #{microScanPayAccountId,jdbcType=INTEGER}, 
+      #{aliScanPayAccountId,jdbcType=INTEGER}, #{swiftPassAccountId,jdbcType=INTEGER}, 
+      #{weBankPayAccountId,jdbcType=INTEGER}, #{microWapPayAccountId,jdbcType=INTEGER}, 
+      #{topUpMicroPayAccountId,jdbcType=INTEGER}, #{topUpAlipayAccountId,jdbcType=INTEGER}, 
+      #{starPosPayAccountId,jdbcType=INTEGER}, #{HKWechatPayAccountId,jdbcType=INTEGER}, 
+      #{veryStarPayAccountId,jdbcType=INTEGER}, #{openEPayAccountId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.Store">
+    insert into Store
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerID != null">
+        PartnerID,
+      </if>
+      <if test="storeID_Partner != null">
+        StoreID_Partner,
+      </if>
+      <if test="signChar != null">
+        SignChar,
+      </if>
+      <if test="storeName != null">
+        StoreName,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="districtID != null">
+        DistrictID,
+      </if>
+      <if test="location != null">
+        Location,
+      </if>
+      <if test="location1 != null">
+        Location1,
+      </if>
+      <if test="storeImage != null">
+        StoreImage,
+      </if>
+      <if test="POSAmount != null">
+        POSAmount,
+      </if>
+      <if test="blocked != null">
+        Blocked,
+      </if>
+      <if test="blockedDate != null">
+        BlockedDate,
+      </if>
+      <if test="blockReason != null">
+        BlockReason,
+      </if>
+      <if test="alipayAccountId != null">
+        AlipayAccountId,
+      </if>
+      <if test="oldStoreName != null">
+        OldStoreName,
+      </if>
+      <if test="microPayAccountId != null">
+        MicroPayAccountId,
+      </if>
+      <if test="bestpayAccountId != null">
+        BestpayAccountId,
+      </if>
+      <if test="dayspayAccountId != null">
+        DayspayAccountId,
+      </if>
+      <if test="alertPhone != null">
+        AlertPhone,
+      </if>
+      <if test="tenpayAccountId != null">
+        TenpayAccountId,
+      </if>
+      <if test="yiFubaoAccountId != null">
+        YiFubaoAccountId,
+      </if>
+      <if test="jdPayAccountId != null">
+        JdPayAccountId,
+      </if>
+      <if test="baifubaoAccountId != null">
+        BaifubaoAccountId,
+      </if>
+      <if test="province != null">
+        Province,
+      </if>
+      <if test="inuse != null">
+        inuse,
+      </if>
+      <if test="lakalaAccountId != null">
+        LakalaAccountId,
+      </if>
+      <if test="shfftAccountId != null">
+        ShfftAccountId,
+      </if>
+      <if test="wjikaAccountId != null">
+        WjikaAccountId,
+      </if>
+      <if test="memberAccountId != null">
+        MemberAccountId,
+      </if>
+      <if test="ICBCAccountId != null">
+        ICBCAccountId,
+      </if>
+      <if test="unifyId != null">
+        UnifyId,
+      </if>
+      <if test="departmentID != null">
+        DepartmentID,
+      </if>
+      <if test="nuoMiAccountId != null">
+        NuoMiAccountId,
+      </if>
+      <if test="gouKaixinAccountId != null">
+        GouKaixinAccountId,
+      </if>
+      <if test="CCBAccountId != null">
+        CCBAccountId,
+      </if>
+      <if test="cardAccountId != null">
+        CardAccountId,
+      </if>
+      <if test="fubeiAccountId != null">
+        FubeiAccountId,
+      </if>
+      <if test="unionPayAccountId != null">
+        UnionPayAccountId,
+      </if>
+      <if test="APPAlipayAccountId != null">
+        APPAlipayAccountId,
+      </if>
+      <if test="appMicroPayAccountId != null">
+        AppMicroPayAccountId,
+      </if>
+      <if test="feiFanPayAccountId != null">
+        FeiFanPayAccountId,
+      </if>
+      <if test="overSeaAlipayAccountId != null">
+        OverSeaAlipayAccountId,
+      </if>
+      <if test="cmpayAccountId != null">
+        CmpayAccountId,
+      </if>
+      <if test="ebuyAccountId != null">
+        EbuyAccountId,
+      </if>
+      <if test="swiftPassWXAccountId != null">
+        SwiftPassWXAccountId,
+      </if>
+      <if test="swiftPassAliAccountId != null">
+        SwiftPassAliAccountId,
+      </if>
+      <if test="swiftPassTenAccountId != null">
+        SwiftPassTenAccountId,
+      </if>
+      <if test="overSeaMicroPayAccountId != null">
+        OverSeaMicroPayAccountId,
+      </if>
+      <if test="GZHMicroAccountId != null">
+        GZHMicroAccountId,
+      </if>
+      <if test="APPMicroAccountId != null">
+        APPMicroAccountId,
+      </if>
+      <if test="XCXMicroAccountId != null">
+        XCXMicroAccountId,
+      </if>
+      <if test="aliwapPayAccountId != null">
+        AliwapPayAccountId,
+      </if>
+      <if test="finincalAccountId != null">
+        FinincalAccountId,
+      </if>
+      <if test="weBankWXPayAccountId != null">
+        WeBankWXPayAccountId,
+      </if>
+      <if test="weBankAliPayAccountId != null">
+        WeBankAliPayAccountId,
+      </if>
+      <if test="pubPayAccountId != null">
+        PubPayAccountId,
+      </if>
+      <if test="microScanPayAccountId != null">
+        MicroScanPayAccountId,
+      </if>
+      <if test="aliScanPayAccountId != null">
+        AliScanPayAccountId,
+      </if>
+      <if test="swiftPassAccountId != null">
+        SwiftPassAccountId,
+      </if>
+      <if test="weBankPayAccountId != null">
+        WeBankPayAccountId,
+      </if>
+      <if test="microWapPayAccountId != null">
+        MicroWapPayAccountId,
+      </if>
+      <if test="topUpMicroPayAccountId != null">
+        TopUpMicroPayAccountId,
+      </if>
+      <if test="topUpAlipayAccountId != null">
+        TopUpAlipayAccountId,
+      </if>
+      <if test="starPosPayAccountId != null">
+        StarPosPayAccountId,
+      </if>
+      <if test="HKWechatPayAccountId != null">
+        HKWechatPayAccountId,
+      </if>
+      <if test="veryStarPayAccountId != null">
+        VeryStarPayAccountId,
+      </if>
+      <if test="openEPayAccountId != null">
+        OpenEPayAccountId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerID != null">
+        #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="storeID_Partner != null">
+        #{storeID_Partner,jdbcType=VARCHAR},
+      </if>
+      <if test="signChar != null">
+        #{signChar,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null">
+        #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="districtID != null">
+        #{districtID,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="location1 != null">
+        #{location1,jdbcType=VARCHAR},
+      </if>
+      <if test="storeImage != null">
+        #{storeImage,jdbcType=VARCHAR},
+      </if>
+      <if test="POSAmount != null">
+        #{POSAmount,jdbcType=INTEGER},
+      </if>
+      <if test="blocked != null">
+        #{blocked,jdbcType=INTEGER},
+      </if>
+      <if test="blockedDate != null">
+        #{blockedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blockReason != null">
+        #{blockReason,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayAccountId != null">
+        #{alipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="oldStoreName != null">
+        #{oldStoreName,jdbcType=VARCHAR},
+      </if>
+      <if test="microPayAccountId != null">
+        #{microPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="bestpayAccountId != null">
+        #{bestpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="dayspayAccountId != null">
+        #{dayspayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="alertPhone != null">
+        #{alertPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="tenpayAccountId != null">
+        #{tenpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="yiFubaoAccountId != null">
+        #{yiFubaoAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="jdPayAccountId != null">
+        #{jdPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="baifubaoAccountId != null">
+        #{baifubaoAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="inuse != null">
+        #{inuse,jdbcType=BIT},
+      </if>
+      <if test="lakalaAccountId != null">
+        #{lakalaAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="shfftAccountId != null">
+        #{shfftAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="wjikaAccountId != null">
+        #{wjikaAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="memberAccountId != null">
+        #{memberAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="ICBCAccountId != null">
+        #{ICBCAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="unifyId != null">
+        #{unifyId,jdbcType=CHAR},
+      </if>
+      <if test="departmentID != null">
+        #{departmentID,jdbcType=VARCHAR},
+      </if>
+      <if test="nuoMiAccountId != null">
+        #{nuoMiAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="gouKaixinAccountId != null">
+        #{gouKaixinAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="CCBAccountId != null">
+        #{CCBAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="cardAccountId != null">
+        #{cardAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="fubeiAccountId != null">
+        #{fubeiAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="unionPayAccountId != null">
+        #{unionPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="APPAlipayAccountId != null">
+        #{APPAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="appMicroPayAccountId != null">
+        #{appMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="feiFanPayAccountId != null">
+        #{feiFanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="overSeaAlipayAccountId != null">
+        #{overSeaAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="cmpayAccountId != null">
+        #{cmpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="ebuyAccountId != null">
+        #{ebuyAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassWXAccountId != null">
+        #{swiftPassWXAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassAliAccountId != null">
+        #{swiftPassAliAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassTenAccountId != null">
+        #{swiftPassTenAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="overSeaMicroPayAccountId != null">
+        #{overSeaMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="GZHMicroAccountId != null">
+        #{GZHMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="APPMicroAccountId != null">
+        #{APPMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="XCXMicroAccountId != null">
+        #{XCXMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="aliwapPayAccountId != null">
+        #{aliwapPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="finincalAccountId != null">
+        #{finincalAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankWXPayAccountId != null">
+        #{weBankWXPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankAliPayAccountId != null">
+        #{weBankAliPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="pubPayAccountId != null">
+        #{pubPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="microScanPayAccountId != null">
+        #{microScanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="aliScanPayAccountId != null">
+        #{aliScanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassAccountId != null">
+        #{swiftPassAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankPayAccountId != null">
+        #{weBankPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="microWapPayAccountId != null">
+        #{microWapPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="topUpMicroPayAccountId != null">
+        #{topUpMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="topUpAlipayAccountId != null">
+        #{topUpAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="starPosPayAccountId != null">
+        #{starPosPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="HKWechatPayAccountId != null">
+        #{HKWechatPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="veryStarPayAccountId != null">
+        #{veryStarPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="openEPayAccountId != null">
+        #{openEPayAccountId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.Store">
+    update Store
+    <set>
+      <if test="partnerID != null">
+        PartnerID = #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="storeID_Partner != null">
+        StoreID_Partner = #{storeID_Partner,jdbcType=VARCHAR},
+      </if>
+      <if test="signChar != null">
+        SignChar = #{signChar,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null">
+        StoreName = #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="districtID != null">
+        DistrictID = #{districtID,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        Location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="location1 != null">
+        Location1 = #{location1,jdbcType=VARCHAR},
+      </if>
+      <if test="storeImage != null">
+        StoreImage = #{storeImage,jdbcType=VARCHAR},
+      </if>
+      <if test="POSAmount != null">
+        POSAmount = #{POSAmount,jdbcType=INTEGER},
+      </if>
+      <if test="blocked != null">
+        Blocked = #{blocked,jdbcType=INTEGER},
+      </if>
+      <if test="blockedDate != null">
+        BlockedDate = #{blockedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blockReason != null">
+        BlockReason = #{blockReason,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayAccountId != null">
+        AlipayAccountId = #{alipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="oldStoreName != null">
+        OldStoreName = #{oldStoreName,jdbcType=VARCHAR},
+      </if>
+      <if test="microPayAccountId != null">
+        MicroPayAccountId = #{microPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="bestpayAccountId != null">
+        BestpayAccountId = #{bestpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="dayspayAccountId != null">
+        DayspayAccountId = #{dayspayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="alertPhone != null">
+        AlertPhone = #{alertPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="tenpayAccountId != null">
+        TenpayAccountId = #{tenpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="yiFubaoAccountId != null">
+        YiFubaoAccountId = #{yiFubaoAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="jdPayAccountId != null">
+        JdPayAccountId = #{jdPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="baifubaoAccountId != null">
+        BaifubaoAccountId = #{baifubaoAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        Province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="inuse != null">
+        inuse = #{inuse,jdbcType=BIT},
+      </if>
+      <if test="lakalaAccountId != null">
+        LakalaAccountId = #{lakalaAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="shfftAccountId != null">
+        ShfftAccountId = #{shfftAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="wjikaAccountId != null">
+        WjikaAccountId = #{wjikaAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="memberAccountId != null">
+        MemberAccountId = #{memberAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="ICBCAccountId != null">
+        ICBCAccountId = #{ICBCAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="unifyId != null">
+        UnifyId = #{unifyId,jdbcType=CHAR},
+      </if>
+      <if test="departmentID != null">
+        DepartmentID = #{departmentID,jdbcType=VARCHAR},
+      </if>
+      <if test="nuoMiAccountId != null">
+        NuoMiAccountId = #{nuoMiAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="gouKaixinAccountId != null">
+        GouKaixinAccountId = #{gouKaixinAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="CCBAccountId != null">
+        CCBAccountId = #{CCBAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="cardAccountId != null">
+        CardAccountId = #{cardAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="fubeiAccountId != null">
+        FubeiAccountId = #{fubeiAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="unionPayAccountId != null">
+        UnionPayAccountId = #{unionPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="APPAlipayAccountId != null">
+        APPAlipayAccountId = #{APPAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="appMicroPayAccountId != null">
+        AppMicroPayAccountId = #{appMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="feiFanPayAccountId != null">
+        FeiFanPayAccountId = #{feiFanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="overSeaAlipayAccountId != null">
+        OverSeaAlipayAccountId = #{overSeaAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="cmpayAccountId != null">
+        CmpayAccountId = #{cmpayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="ebuyAccountId != null">
+        EbuyAccountId = #{ebuyAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassWXAccountId != null">
+        SwiftPassWXAccountId = #{swiftPassWXAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassAliAccountId != null">
+        SwiftPassAliAccountId = #{swiftPassAliAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassTenAccountId != null">
+        SwiftPassTenAccountId = #{swiftPassTenAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="overSeaMicroPayAccountId != null">
+        OverSeaMicroPayAccountId = #{overSeaMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="GZHMicroAccountId != null">
+        GZHMicroAccountId = #{GZHMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="APPMicroAccountId != null">
+        APPMicroAccountId = #{APPMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="XCXMicroAccountId != null">
+        XCXMicroAccountId = #{XCXMicroAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="aliwapPayAccountId != null">
+        AliwapPayAccountId = #{aliwapPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="finincalAccountId != null">
+        FinincalAccountId = #{finincalAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankWXPayAccountId != null">
+        WeBankWXPayAccountId = #{weBankWXPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankAliPayAccountId != null">
+        WeBankAliPayAccountId = #{weBankAliPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="pubPayAccountId != null">
+        PubPayAccountId = #{pubPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="microScanPayAccountId != null">
+        MicroScanPayAccountId = #{microScanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="aliScanPayAccountId != null">
+        AliScanPayAccountId = #{aliScanPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="swiftPassAccountId != null">
+        SwiftPassAccountId = #{swiftPassAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="weBankPayAccountId != null">
+        WeBankPayAccountId = #{weBankPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="microWapPayAccountId != null">
+        MicroWapPayAccountId = #{microWapPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="topUpMicroPayAccountId != null">
+        TopUpMicroPayAccountId = #{topUpMicroPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="topUpAlipayAccountId != null">
+        TopUpAlipayAccountId = #{topUpAlipayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="starPosPayAccountId != null">
+        StarPosPayAccountId = #{starPosPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="HKWechatPayAccountId != null">
+        HKWechatPayAccountId = #{HKWechatPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="veryStarPayAccountId != null">
+        VeryStarPayAccountId = #{veryStarPayAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="openEPayAccountId != null">
+        OpenEPayAccountId = #{openEPayAccountId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.Store">
+    update Store
+    set PartnerID = #{partnerID,jdbcType=INTEGER},
+      StoreID_Partner = #{storeID_Partner,jdbcType=VARCHAR},
+      SignChar = #{signChar,jdbcType=VARCHAR},
+      StoreName = #{storeName,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      DistrictID = #{districtID,jdbcType=INTEGER},
+      Location = #{location,jdbcType=VARCHAR},
+      Location1 = #{location1,jdbcType=VARCHAR},
+      StoreImage = #{storeImage,jdbcType=VARCHAR},
+      POSAmount = #{POSAmount,jdbcType=INTEGER},
+      Blocked = #{blocked,jdbcType=INTEGER},
+      BlockedDate = #{blockedDate,jdbcType=TIMESTAMP},
+      BlockReason = #{blockReason,jdbcType=VARCHAR},
+      AlipayAccountId = #{alipayAccountId,jdbcType=INTEGER},
+      OldStoreName = #{oldStoreName,jdbcType=VARCHAR},
+      MicroPayAccountId = #{microPayAccountId,jdbcType=INTEGER},
+      BestpayAccountId = #{bestpayAccountId,jdbcType=INTEGER},
+      DayspayAccountId = #{dayspayAccountId,jdbcType=INTEGER},
+      AlertPhone = #{alertPhone,jdbcType=VARCHAR},
+      TenpayAccountId = #{tenpayAccountId,jdbcType=INTEGER},
+      YiFubaoAccountId = #{yiFubaoAccountId,jdbcType=INTEGER},
+      JdPayAccountId = #{jdPayAccountId,jdbcType=INTEGER},
+      BaifubaoAccountId = #{baifubaoAccountId,jdbcType=INTEGER},
+      Province = #{province,jdbcType=VARCHAR},
+      inuse = #{inuse,jdbcType=BIT},
+      LakalaAccountId = #{lakalaAccountId,jdbcType=INTEGER},
+      ShfftAccountId = #{shfftAccountId,jdbcType=INTEGER},
+      WjikaAccountId = #{wjikaAccountId,jdbcType=INTEGER},
+      MemberAccountId = #{memberAccountId,jdbcType=INTEGER},
+      ICBCAccountId = #{ICBCAccountId,jdbcType=INTEGER},
+      UnifyId = #{unifyId,jdbcType=CHAR},
+      DepartmentID = #{departmentID,jdbcType=VARCHAR},
+      NuoMiAccountId = #{nuoMiAccountId,jdbcType=VARCHAR},
+      GouKaixinAccountId = #{gouKaixinAccountId,jdbcType=INTEGER},
+      CCBAccountId = #{CCBAccountId,jdbcType=INTEGER},
+      CardAccountId = #{cardAccountId,jdbcType=INTEGER},
+      FubeiAccountId = #{fubeiAccountId,jdbcType=INTEGER},
+      UnionPayAccountId = #{unionPayAccountId,jdbcType=INTEGER},
+      APPAlipayAccountId = #{APPAlipayAccountId,jdbcType=INTEGER},
+      AppMicroPayAccountId = #{appMicroPayAccountId,jdbcType=INTEGER},
+      FeiFanPayAccountId = #{feiFanPayAccountId,jdbcType=INTEGER},
+      OverSeaAlipayAccountId = #{overSeaAlipayAccountId,jdbcType=INTEGER},
+      CmpayAccountId = #{cmpayAccountId,jdbcType=INTEGER},
+      EbuyAccountId = #{ebuyAccountId,jdbcType=INTEGER},
+      SwiftPassWXAccountId = #{swiftPassWXAccountId,jdbcType=INTEGER},
+      SwiftPassAliAccountId = #{swiftPassAliAccountId,jdbcType=INTEGER},
+      SwiftPassTenAccountId = #{swiftPassTenAccountId,jdbcType=INTEGER},
+      OverSeaMicroPayAccountId = #{overSeaMicroPayAccountId,jdbcType=INTEGER},
+      GZHMicroAccountId = #{GZHMicroAccountId,jdbcType=INTEGER},
+      APPMicroAccountId = #{APPMicroAccountId,jdbcType=INTEGER},
+      XCXMicroAccountId = #{XCXMicroAccountId,jdbcType=INTEGER},
+      AliwapPayAccountId = #{aliwapPayAccountId,jdbcType=INTEGER},
+      FinincalAccountId = #{finincalAccountId,jdbcType=INTEGER},
+      WeBankWXPayAccountId = #{weBankWXPayAccountId,jdbcType=INTEGER},
+      WeBankAliPayAccountId = #{weBankAliPayAccountId,jdbcType=INTEGER},
+      PubPayAccountId = #{pubPayAccountId,jdbcType=INTEGER},
+      MicroScanPayAccountId = #{microScanPayAccountId,jdbcType=INTEGER},
+      AliScanPayAccountId = #{aliScanPayAccountId,jdbcType=INTEGER},
+      SwiftPassAccountId = #{swiftPassAccountId,jdbcType=INTEGER},
+      WeBankPayAccountId = #{weBankPayAccountId,jdbcType=INTEGER},
+      MicroWapPayAccountId = #{microWapPayAccountId,jdbcType=INTEGER},
+      TopUpMicroPayAccountId = #{topUpMicroPayAccountId,jdbcType=INTEGER},
+      TopUpAlipayAccountId = #{topUpAlipayAccountId,jdbcType=INTEGER},
+      StarPosPayAccountId = #{starPosPayAccountId,jdbcType=INTEGER},
+      HKWechatPayAccountId = #{HKWechatPayAccountId,jdbcType=INTEGER},
+      VeryStarPayAccountId = #{veryStarPayAccountId,jdbcType=INTEGER},
+      OpenEPayAccountId = #{openEPayAccountId,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

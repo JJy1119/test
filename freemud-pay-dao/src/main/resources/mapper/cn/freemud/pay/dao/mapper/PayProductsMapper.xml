@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayProductsMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayProducts">
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="FMId" jdbcType="VARCHAR" property="FMId" />
+    <result column="PID" jdbcType="VARCHAR" property="PID" />
+    <result column="PName" jdbcType="VARCHAR" property="PName" />
+    <result column="PWeight" jdbcType="DECIMAL" property="PWeight" />
+    <result column="PPrice" jdbcType="DECIMAL" property="PPrice" />
+    <result column="SalesType" jdbcType="VARCHAR" property="salesType" />
+    <result column="Seq" jdbcType="INTEGER" property="seq" />
+    <result column="PCata" jdbcType="VARCHAR" property="PCata" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, FMId, PID, PName, PWeight, PPrice, SalesType, Seq, PCata
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_Products
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay_Products
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayProducts">
+    insert into Pay_Products (ID, FMId, PID, 
+      PName, PWeight, PPrice, 
+      SalesType, Seq, PCata
+      )
+    values (#{ID,jdbcType=BIGINT}, #{FMId,jdbcType=VARCHAR}, #{PID,jdbcType=VARCHAR}, 
+      #{PName,jdbcType=VARCHAR}, #{PWeight,jdbcType=DECIMAL}, #{PPrice,jdbcType=DECIMAL}, 
+      #{salesType,jdbcType=VARCHAR}, #{seq,jdbcType=INTEGER}, #{PCata,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayProducts">
+    insert into Pay_Products
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="FMId != null">
+        FMId,
+      </if>
+      <if test="PID != null">
+        PID,
+      </if>
+      <if test="PName != null">
+        PName,
+      </if>
+      <if test="PWeight != null">
+        PWeight,
+      </if>
+      <if test="PPrice != null">
+        PPrice,
+      </if>
+      <if test="salesType != null">
+        SalesType,
+      </if>
+      <if test="seq != null">
+        Seq,
+      </if>
+      <if test="PCata != null">
+        PCata,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=BIGINT},
+      </if>
+      <if test="FMId != null">
+        #{FMId,jdbcType=VARCHAR},
+      </if>
+      <if test="PID != null">
+        #{PID,jdbcType=VARCHAR},
+      </if>
+      <if test="PName != null">
+        #{PName,jdbcType=VARCHAR},
+      </if>
+      <if test="PWeight != null">
+        #{PWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="PPrice != null">
+        #{PPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesType != null">
+        #{salesType,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null">
+        #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="PCata != null">
+        #{PCata,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayProducts">
+    update Pay_Products
+    <set>
+      <if test="FMId != null">
+        FMId = #{FMId,jdbcType=VARCHAR},
+      </if>
+      <if test="PID != null">
+        PID = #{PID,jdbcType=VARCHAR},
+      </if>
+      <if test="PName != null">
+        PName = #{PName,jdbcType=VARCHAR},
+      </if>
+      <if test="PWeight != null">
+        PWeight = #{PWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="PPrice != null">
+        PPrice = #{PPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesType != null">
+        SalesType = #{salesType,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null">
+        Seq = #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="PCata != null">
+        PCata = #{PCata,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayProducts">
+    update Pay_Products
+    set FMId = #{FMId,jdbcType=VARCHAR},
+      PID = #{PID,jdbcType=VARCHAR},
+      PName = #{PName,jdbcType=VARCHAR},
+      PWeight = #{PWeight,jdbcType=DECIMAL},
+      PPrice = #{PPrice,jdbcType=DECIMAL},
+      SalesType = #{salesType,jdbcType=VARCHAR},
+      Seq = #{seq,jdbcType=INTEGER},
+      PCata = #{PCata,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayProducts">
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="FMId" jdbcType="VARCHAR" property="FMId" />
+    <result column="PID" jdbcType="VARCHAR" property="PID" />
+    <result column="PName" jdbcType="VARCHAR" property="PName" />
+    <result column="PWeight" jdbcType="DECIMAL" property="PWeight" />
+    <result column="PPrice" jdbcType="DECIMAL" property="PPrice" />
+    <result column="SalesType" jdbcType="VARCHAR" property="salesType" />
+    <result column="Seq" jdbcType="INTEGER" property="seq" />
+    <result column="PCata" jdbcType="VARCHAR" property="PCata" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, FMId, PID, PName, PWeight, PPrice, SalesType, Seq, PCata
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_Products
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay_Products
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayProducts">
+    insert into Pay_Products (ID, FMId, PID, 
+      PName, PWeight, PPrice, 
+      SalesType, Seq, PCata
+      )
+    values (#{ID,jdbcType=BIGINT}, #{FMId,jdbcType=VARCHAR}, #{PID,jdbcType=VARCHAR}, 
+      #{PName,jdbcType=VARCHAR}, #{PWeight,jdbcType=DECIMAL}, #{PPrice,jdbcType=DECIMAL}, 
+      #{salesType,jdbcType=VARCHAR}, #{seq,jdbcType=INTEGER}, #{PCata,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayProducts">
+    insert into Pay_Products
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="FMId != null">
+        FMId,
+      </if>
+      <if test="PID != null">
+        PID,
+      </if>
+      <if test="PName != null">
+        PName,
+      </if>
+      <if test="PWeight != null">
+        PWeight,
+      </if>
+      <if test="PPrice != null">
+        PPrice,
+      </if>
+      <if test="salesType != null">
+        SalesType,
+      </if>
+      <if test="seq != null">
+        Seq,
+      </if>
+      <if test="PCata != null">
+        PCata,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=BIGINT},
+      </if>
+      <if test="FMId != null">
+        #{FMId,jdbcType=VARCHAR},
+      </if>
+      <if test="PID != null">
+        #{PID,jdbcType=VARCHAR},
+      </if>
+      <if test="PName != null">
+        #{PName,jdbcType=VARCHAR},
+      </if>
+      <if test="PWeight != null">
+        #{PWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="PPrice != null">
+        #{PPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesType != null">
+        #{salesType,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null">
+        #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="PCata != null">
+        #{PCata,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayProducts">
+    update Pay_Products
+    <set>
+      <if test="FMId != null">
+        FMId = #{FMId,jdbcType=VARCHAR},
+      </if>
+      <if test="PID != null">
+        PID = #{PID,jdbcType=VARCHAR},
+      </if>
+      <if test="PName != null">
+        PName = #{PName,jdbcType=VARCHAR},
+      </if>
+      <if test="PWeight != null">
+        PWeight = #{PWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="PPrice != null">
+        PPrice = #{PPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesType != null">
+        SalesType = #{salesType,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null">
+        Seq = #{seq,jdbcType=INTEGER},
+      </if>
+      <if test="PCata != null">
+        PCata = #{PCata,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayProducts">
+    update Pay_Products
+    set FMId = #{FMId,jdbcType=VARCHAR},
+      PID = #{PID,jdbcType=VARCHAR},
+      PName = #{PName,jdbcType=VARCHAR},
+      PWeight = #{PWeight,jdbcType=DECIMAL},
+      PPrice = #{PPrice,jdbcType=DECIMAL},
+      SalesType = #{salesType,jdbcType=VARCHAR},
+      Seq = #{seq,jdbcType=INTEGER},
+      PCata = #{PCata,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+</mapper>

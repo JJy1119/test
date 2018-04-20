@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PartnerSettingMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PartnerSetting">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerID" jdbcType="INTEGER" property="partnerID" />
+    <result column="Key" jdbcType="VARCHAR" property="key" />
+    <result column="Value" jdbcType="VARCHAR" property="value" />
+    <result column="Status" jdbcType="VARCHAR" property="status" />
+    <result column="StartTime" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="EndTime" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="LastEditTime" jdbcType="TIMESTAMP" property="lastEditTime" />
+    <result column="LastEditUser" jdbcType="VARCHAR" property="lastEditUser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerID, Key, Value, Status, StartTime, EndTime, CreateDate, CreateUser, LastEditTime, 
+    LastEditUser
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Partner_Setting
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Partner_Setting
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PartnerSetting">
+    insert into Partner_Setting (ID, PartnerID, Key, 
+      Value, Status, StartTime, 
+      EndTime, CreateDate, CreateUser, 
+      LastEditTime, LastEditUser)
+    values (#{ID,jdbcType=INTEGER}, #{partnerID,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, 
+      #{value,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, 
+      #{lastEditTime,jdbcType=TIMESTAMP}, #{lastEditUser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PartnerSetting">
+    insert into Partner_Setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerID != null">
+        PartnerID,
+      </if>
+      <if test="key != null">
+        Key,
+      </if>
+      <if test="value != null">
+        Value,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+      <if test="startTime != null">
+        StartTime,
+      </if>
+      <if test="endTime != null">
+        EndTime,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="lastEditTime != null">
+        LastEditTime,
+      </if>
+      <if test="lastEditUser != null">
+        LastEditUser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerID != null">
+        #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="key != null">
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastEditTime != null">
+        #{lastEditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditUser != null">
+        #{lastEditUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PartnerSetting">
+    update Partner_Setting
+    <set>
+      <if test="partnerID != null">
+        PartnerID = #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="key != null">
+        Key = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        Value = #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        Status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        StartTime = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        EndTime = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastEditTime != null">
+        LastEditTime = #{lastEditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditUser != null">
+        LastEditUser = #{lastEditUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PartnerSetting">
+    update Partner_Setting
+    set PartnerID = #{partnerID,jdbcType=INTEGER},
+      Key = #{key,jdbcType=VARCHAR},
+      Value = #{value,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=VARCHAR},
+      StartTime = #{startTime,jdbcType=TIMESTAMP},
+      EndTime = #{endTime,jdbcType=TIMESTAMP},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      LastEditTime = #{lastEditTime,jdbcType=TIMESTAMP},
+      LastEditUser = #{lastEditUser,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PartnerSetting">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerID" jdbcType="INTEGER" property="partnerID" />
+    <result column="Key" jdbcType="VARCHAR" property="key" />
+    <result column="Value" jdbcType="VARCHAR" property="value" />
+    <result column="Status" jdbcType="VARCHAR" property="status" />
+    <result column="StartTime" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="EndTime" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="LastEditTime" jdbcType="TIMESTAMP" property="lastEditTime" />
+    <result column="LastEditUser" jdbcType="VARCHAR" property="lastEditUser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerID, Key, Value, Status, StartTime, EndTime, CreateDate, CreateUser, LastEditTime, 
+    LastEditUser
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Partner_Setting
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Partner_Setting
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PartnerSetting">
+    insert into Partner_Setting (ID, PartnerID, Key, 
+      Value, Status, StartTime, 
+      EndTime, CreateDate, CreateUser, 
+      LastEditTime, LastEditUser)
+    values (#{ID,jdbcType=INTEGER}, #{partnerID,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, 
+      #{value,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, 
+      #{lastEditTime,jdbcType=TIMESTAMP}, #{lastEditUser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PartnerSetting">
+    insert into Partner_Setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerID != null">
+        PartnerID,
+      </if>
+      <if test="key != null">
+        Key,
+      </if>
+      <if test="value != null">
+        Value,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+      <if test="startTime != null">
+        StartTime,
+      </if>
+      <if test="endTime != null">
+        EndTime,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="lastEditTime != null">
+        LastEditTime,
+      </if>
+      <if test="lastEditUser != null">
+        LastEditUser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerID != null">
+        #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="key != null">
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastEditTime != null">
+        #{lastEditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditUser != null">
+        #{lastEditUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PartnerSetting">
+    update Partner_Setting
+    <set>
+      <if test="partnerID != null">
+        PartnerID = #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="key != null">
+        Key = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        Value = #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        Status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        StartTime = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        EndTime = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastEditTime != null">
+        LastEditTime = #{lastEditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditUser != null">
+        LastEditUser = #{lastEditUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PartnerSetting">
+    update Partner_Setting
+    set PartnerID = #{partnerID,jdbcType=INTEGER},
+      Key = #{key,jdbcType=VARCHAR},
+      Value = #{value,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=VARCHAR},
+      StartTime = #{startTime,jdbcType=TIMESTAMP},
+      EndTime = #{endTime,jdbcType=TIMESTAMP},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      LastEditTime = #{lastEditTime,jdbcType=TIMESTAMP},
+      LastEditUser = #{lastEditUser,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

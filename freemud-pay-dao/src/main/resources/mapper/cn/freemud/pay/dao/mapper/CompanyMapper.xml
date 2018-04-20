@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.CompanyMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.Company">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="PartnerID" jdbcType="VARCHAR" property="partnerid" />
+    <result column="CompanyCode" jdbcType="VARCHAR" property="companycode" />
+    <result column="CompanyName" jdbcType="VARCHAR" property="companyname" />
+    <result column="UnifyId" jdbcType="VARCHAR" property="unifyid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerID, CompanyCode, CompanyName, UnifyId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Company
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Company
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.Company">
+    insert into Company (ID, PartnerID, CompanyCode, 
+      CompanyName, UnifyId)
+    values (#{id,jdbcType=INTEGER}, #{partnerid,jdbcType=VARCHAR}, #{companycode,jdbcType=VARCHAR}, 
+      #{companyname,jdbcType=VARCHAR}, #{unifyid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.Company">
+    insert into Company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="partnerid != null">
+        PartnerID,
+      </if>
+      <if test="companycode != null">
+        CompanyCode,
+      </if>
+      <if test="companyname != null">
+        CompanyName,
+      </if>
+      <if test="unifyid != null">
+        UnifyId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="partnerid != null">
+        #{partnerid,jdbcType=VARCHAR},
+      </if>
+      <if test="companycode != null">
+        #{companycode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyid != null">
+        #{unifyid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.Company">
+    update Company
+    <set>
+      <if test="partnerid != null">
+        PartnerID = #{partnerid,jdbcType=VARCHAR},
+      </if>
+      <if test="companycode != null">
+        CompanyCode = #{companycode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        CompanyName = #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyid != null">
+        UnifyId = #{unifyid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.Company">
+    update Company
+    set PartnerID = #{partnerid,jdbcType=VARCHAR},
+      CompanyCode = #{companycode,jdbcType=VARCHAR},
+      CompanyName = #{companyname,jdbcType=VARCHAR},
+      UnifyId = #{unifyid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.Company">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="PartnerID" jdbcType="VARCHAR" property="partnerid" />
+    <result column="CompanyCode" jdbcType="VARCHAR" property="companycode" />
+    <result column="CompanyName" jdbcType="VARCHAR" property="companyname" />
+    <result column="UnifyId" jdbcType="VARCHAR" property="unifyid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerID, CompanyCode, CompanyName, UnifyId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Company
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Company
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.Company">
+    insert into Company (ID, PartnerID, CompanyCode, 
+      CompanyName, UnifyId)
+    values (#{id,jdbcType=INTEGER}, #{partnerid,jdbcType=VARCHAR}, #{companycode,jdbcType=VARCHAR}, 
+      #{companyname,jdbcType=VARCHAR}, #{unifyid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.Company">
+    insert into Company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="partnerid != null">
+        PartnerID,
+      </if>
+      <if test="companycode != null">
+        CompanyCode,
+      </if>
+      <if test="companyname != null">
+        CompanyName,
+      </if>
+      <if test="unifyid != null">
+        UnifyId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="partnerid != null">
+        #{partnerid,jdbcType=VARCHAR},
+      </if>
+      <if test="companycode != null">
+        #{companycode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyid != null">
+        #{unifyid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.Company">
+    update Company
+    <set>
+      <if test="partnerid != null">
+        PartnerID = #{partnerid,jdbcType=VARCHAR},
+      </if>
+      <if test="companycode != null">
+        CompanyCode = #{companycode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        CompanyName = #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyid != null">
+        UnifyId = #{unifyid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.Company">
+    update Company
+    set PartnerID = #{partnerid,jdbcType=VARCHAR},
+      CompanyCode = #{companycode,jdbcType=VARCHAR},
+      CompanyName = #{companyname,jdbcType=VARCHAR},
+      UnifyId = #{unifyid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

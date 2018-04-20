@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayProductMappingMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayProductMapping">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerId" />
+    <result column="Pid" jdbcType="VARCHAR" property="pid" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="PidMapTo" jdbcType="VARCHAR" property="pidMapTo" />
+    <result column="NameMapTo" jdbcType="VARCHAR" property="nameMapTo" />
+    <result column="StartTime" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="EndTime" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="OriginalPrice" jdbcType="DECIMAL" property="originalPrice" />
+    <result column="SalesPrice" jdbcType="DECIMAL" property="salesPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PartnerId, Pid, Name, PidMapTo, NameMapTo, StartTime, EndTime, CreateDate, CreateUser, 
+    OriginalPrice, SalesPrice
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_ProductMapping
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_ProductMapping
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayProductMapping">
+    insert into Pay_ProductMapping (Id, PartnerId, Pid, 
+      Name, PidMapTo, NameMapTo, 
+      StartTime, EndTime, CreateDate, 
+      CreateUser, OriginalPrice, SalesPrice
+      )
+    values (#{id,jdbcType=INTEGER}, #{partnerId,jdbcType=INTEGER}, #{pid,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{pidMapTo,jdbcType=VARCHAR}, #{nameMapTo,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=VARCHAR}, #{originalPrice,jdbcType=DECIMAL}, #{salesPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayProductMapping">
+    insert into Pay_ProductMapping
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="partnerId != null">
+        PartnerId,
+      </if>
+      <if test="pid != null">
+        Pid,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="pidMapTo != null">
+        PidMapTo,
+      </if>
+      <if test="nameMapTo != null">
+        NameMapTo,
+      </if>
+      <if test="startTime != null">
+        StartTime,
+      </if>
+      <if test="endTime != null">
+        EndTime,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="originalPrice != null">
+        OriginalPrice,
+      </if>
+      <if test="salesPrice != null">
+        SalesPrice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pidMapTo != null">
+        #{pidMapTo,jdbcType=VARCHAR},
+      </if>
+      <if test="nameMapTo != null">
+        #{nameMapTo,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        #{originalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesPrice != null">
+        #{salesPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayProductMapping">
+    update Pay_ProductMapping
+    <set>
+      <if test="partnerId != null">
+        PartnerId = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        Pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pidMapTo != null">
+        PidMapTo = #{pidMapTo,jdbcType=VARCHAR},
+      </if>
+      <if test="nameMapTo != null">
+        NameMapTo = #{nameMapTo,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        StartTime = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        EndTime = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        OriginalPrice = #{originalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesPrice != null">
+        SalesPrice = #{salesPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayProductMapping">
+    update Pay_ProductMapping
+    set PartnerId = #{partnerId,jdbcType=INTEGER},
+      Pid = #{pid,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      PidMapTo = #{pidMapTo,jdbcType=VARCHAR},
+      NameMapTo = #{nameMapTo,jdbcType=VARCHAR},
+      StartTime = #{startTime,jdbcType=TIMESTAMP},
+      EndTime = #{endTime,jdbcType=TIMESTAMP},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      OriginalPrice = #{originalPrice,jdbcType=DECIMAL},
+      SalesPrice = #{salesPrice,jdbcType=DECIMAL}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayProductMapping">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerId" />
+    <result column="Pid" jdbcType="VARCHAR" property="pid" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="PidMapTo" jdbcType="VARCHAR" property="pidMapTo" />
+    <result column="NameMapTo" jdbcType="VARCHAR" property="nameMapTo" />
+    <result column="StartTime" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="EndTime" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="OriginalPrice" jdbcType="DECIMAL" property="originalPrice" />
+    <result column="SalesPrice" jdbcType="DECIMAL" property="salesPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PartnerId, Pid, Name, PidMapTo, NameMapTo, StartTime, EndTime, CreateDate, CreateUser, 
+    OriginalPrice, SalesPrice
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_ProductMapping
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_ProductMapping
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayProductMapping">
+    insert into Pay_ProductMapping (Id, PartnerId, Pid, 
+      Name, PidMapTo, NameMapTo, 
+      StartTime, EndTime, CreateDate, 
+      CreateUser, OriginalPrice, SalesPrice
+      )
+    values (#{id,jdbcType=INTEGER}, #{partnerId,jdbcType=INTEGER}, #{pid,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{pidMapTo,jdbcType=VARCHAR}, #{nameMapTo,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=VARCHAR}, #{originalPrice,jdbcType=DECIMAL}, #{salesPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayProductMapping">
+    insert into Pay_ProductMapping
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="partnerId != null">
+        PartnerId,
+      </if>
+      <if test="pid != null">
+        Pid,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="pidMapTo != null">
+        PidMapTo,
+      </if>
+      <if test="nameMapTo != null">
+        NameMapTo,
+      </if>
+      <if test="startTime != null">
+        StartTime,
+      </if>
+      <if test="endTime != null">
+        EndTime,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="originalPrice != null">
+        OriginalPrice,
+      </if>
+      <if test="salesPrice != null">
+        SalesPrice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pidMapTo != null">
+        #{pidMapTo,jdbcType=VARCHAR},
+      </if>
+      <if test="nameMapTo != null">
+        #{nameMapTo,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        #{originalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesPrice != null">
+        #{salesPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayProductMapping">
+    update Pay_ProductMapping
+    <set>
+      <if test="partnerId != null">
+        PartnerId = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        Pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pidMapTo != null">
+        PidMapTo = #{pidMapTo,jdbcType=VARCHAR},
+      </if>
+      <if test="nameMapTo != null">
+        NameMapTo = #{nameMapTo,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        StartTime = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        EndTime = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        OriginalPrice = #{originalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salesPrice != null">
+        SalesPrice = #{salesPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayProductMapping">
+    update Pay_ProductMapping
+    set PartnerId = #{partnerId,jdbcType=INTEGER},
+      Pid = #{pid,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      PidMapTo = #{pidMapTo,jdbcType=VARCHAR},
+      NameMapTo = #{nameMapTo,jdbcType=VARCHAR},
+      StartTime = #{startTime,jdbcType=TIMESTAMP},
+      EndTime = #{endTime,jdbcType=TIMESTAMP},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      OriginalPrice = #{originalPrice,jdbcType=DECIMAL},
+      SalesPrice = #{salesPrice,jdbcType=DECIMAL}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

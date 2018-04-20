@@ -1,0 +1,4 @@
+org.springframework.boot.SpringApplicationRunListener=\
+  cn.freemud.framework.spring.ApplicationStartup
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.freemud.framework.boot.MemoryCacheAutoLoad

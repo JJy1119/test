@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayPromotionAreaMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPromotionArea">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="PayPromotionId" jdbcType="INTEGER" property="payPromotionId" />
+    <result column="Area" jdbcType="VARCHAR" property="area" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="Exclude" jdbcType="BIT" property="exclude" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PayPromotionId, Area, Type, Exclude
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_PromotionArea
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_PromotionArea
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPromotionArea">
+    insert into Pay_PromotionArea (Id, PayPromotionId, Area, 
+      Type, Exclude)
+    values (#{id,jdbcType=INTEGER}, #{payPromotionId,jdbcType=INTEGER}, #{area,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{exclude,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPromotionArea">
+    insert into Pay_PromotionArea
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="payPromotionId != null">
+        PayPromotionId,
+      </if>
+      <if test="area != null">
+        Area,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="exclude != null">
+        Exclude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="payPromotionId != null">
+        #{payPromotionId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="exclude != null">
+        #{exclude,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPromotionArea">
+    update Pay_PromotionArea
+    <set>
+      <if test="payPromotionId != null">
+        PayPromotionId = #{payPromotionId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        Area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="exclude != null">
+        Exclude = #{exclude,jdbcType=BIT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPromotionArea">
+    update Pay_PromotionArea
+    set PayPromotionId = #{payPromotionId,jdbcType=INTEGER},
+      Area = #{area,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      Exclude = #{exclude,jdbcType=BIT}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPromotionArea">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="PayPromotionId" jdbcType="INTEGER" property="payPromotionId" />
+    <result column="Area" jdbcType="VARCHAR" property="area" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="Exclude" jdbcType="BIT" property="exclude" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PayPromotionId, Area, Type, Exclude
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_PromotionArea
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_PromotionArea
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPromotionArea">
+    insert into Pay_PromotionArea (Id, PayPromotionId, Area, 
+      Type, Exclude)
+    values (#{id,jdbcType=INTEGER}, #{payPromotionId,jdbcType=INTEGER}, #{area,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{exclude,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPromotionArea">
+    insert into Pay_PromotionArea
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="payPromotionId != null">
+        PayPromotionId,
+      </if>
+      <if test="area != null">
+        Area,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="exclude != null">
+        Exclude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="payPromotionId != null">
+        #{payPromotionId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="exclude != null">
+        #{exclude,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPromotionArea">
+    update Pay_PromotionArea
+    <set>
+      <if test="payPromotionId != null">
+        PayPromotionId = #{payPromotionId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        Area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="exclude != null">
+        Exclude = #{exclude,jdbcType=BIT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPromotionArea">
+    update Pay_PromotionArea
+    set PayPromotionId = #{payPromotionId,jdbcType=INTEGER},
+      Area = #{area,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      Exclude = #{exclude,jdbcType=BIT}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

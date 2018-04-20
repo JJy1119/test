@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PartnerIPMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PartnerIP">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerID" jdbcType="INTEGER" property="partnerID" />
+    <result column="IP" jdbcType="VARCHAR" property="IP" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerID, IP, Type, CreateUser, CreateDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Partner_IP
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Partner_IP
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PartnerIP">
+    insert into Partner_IP (ID, PartnerID, IP, 
+      Type, CreateUser, CreateDate
+      )
+    values (#{ID,jdbcType=INTEGER}, #{partnerID,jdbcType=INTEGER}, #{IP,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PartnerIP">
+    insert into Partner_IP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerID != null">
+        PartnerID,
+      </if>
+      <if test="IP != null">
+        IP,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerID != null">
+        #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="IP != null">
+        #{IP,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PartnerIP">
+    update Partner_IP
+    <set>
+      <if test="partnerID != null">
+        PartnerID = #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="IP != null">
+        IP = #{IP,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PartnerIP">
+    update Partner_IP
+    set PartnerID = #{partnerID,jdbcType=INTEGER},
+      IP = #{IP,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PartnerIP">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerID" jdbcType="INTEGER" property="partnerID" />
+    <result column="IP" jdbcType="VARCHAR" property="IP" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerID, IP, Type, CreateUser, CreateDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Partner_IP
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Partner_IP
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PartnerIP">
+    insert into Partner_IP (ID, PartnerID, IP, 
+      Type, CreateUser, CreateDate
+      )
+    values (#{ID,jdbcType=INTEGER}, #{partnerID,jdbcType=INTEGER}, #{IP,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PartnerIP">
+    insert into Partner_IP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerID != null">
+        PartnerID,
+      </if>
+      <if test="IP != null">
+        IP,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerID != null">
+        #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="IP != null">
+        #{IP,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PartnerIP">
+    update Partner_IP
+    <set>
+      <if test="partnerID != null">
+        PartnerID = #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="IP != null">
+        IP = #{IP,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PartnerIP">
+    update Partner_IP
+    set PartnerID = #{partnerID,jdbcType=INTEGER},
+      IP = #{IP,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

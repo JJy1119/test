@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayExtentionsMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayExtentions">
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="FMId" jdbcType="VARCHAR" property="FMId" />
+    <result column="PersonnelId" jdbcType="VARCHAR" property="personnelId" />
+    <result column="ClassNo" jdbcType="VARCHAR" property="classNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, FMId, PersonnelId, ClassNo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_Extentions
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay_Extentions
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayExtentions">
+    insert into Pay_Extentions (ID, FMId, PersonnelId, 
+      ClassNo)
+    values (#{ID,jdbcType=BIGINT}, #{FMId,jdbcType=VARCHAR}, #{personnelId,jdbcType=VARCHAR}, 
+      #{classNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayExtentions">
+    insert into Pay_Extentions
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="FMId != null">
+        FMId,
+      </if>
+      <if test="personnelId != null">
+        PersonnelId,
+      </if>
+      <if test="classNo != null">
+        ClassNo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=BIGINT},
+      </if>
+      <if test="FMId != null">
+        #{FMId,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelId != null">
+        #{personnelId,jdbcType=VARCHAR},
+      </if>
+      <if test="classNo != null">
+        #{classNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayExtentions">
+    update Pay_Extentions
+    <set>
+      <if test="FMId != null">
+        FMId = #{FMId,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelId != null">
+        PersonnelId = #{personnelId,jdbcType=VARCHAR},
+      </if>
+      <if test="classNo != null">
+        ClassNo = #{classNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayExtentions">
+    update Pay_Extentions
+    set FMId = #{FMId,jdbcType=VARCHAR},
+      PersonnelId = #{personnelId,jdbcType=VARCHAR},
+      ClassNo = #{classNo,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayExtentions">
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="FMId" jdbcType="VARCHAR" property="FMId" />
+    <result column="PersonnelId" jdbcType="VARCHAR" property="personnelId" />
+    <result column="ClassNo" jdbcType="VARCHAR" property="classNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, FMId, PersonnelId, ClassNo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_Extentions
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay_Extentions
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayExtentions">
+    insert into Pay_Extentions (ID, FMId, PersonnelId, 
+      ClassNo)
+    values (#{ID,jdbcType=BIGINT}, #{FMId,jdbcType=VARCHAR}, #{personnelId,jdbcType=VARCHAR}, 
+      #{classNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayExtentions">
+    insert into Pay_Extentions
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="FMId != null">
+        FMId,
+      </if>
+      <if test="personnelId != null">
+        PersonnelId,
+      </if>
+      <if test="classNo != null">
+        ClassNo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=BIGINT},
+      </if>
+      <if test="FMId != null">
+        #{FMId,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelId != null">
+        #{personnelId,jdbcType=VARCHAR},
+      </if>
+      <if test="classNo != null">
+        #{classNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayExtentions">
+    update Pay_Extentions
+    <set>
+      <if test="FMId != null">
+        FMId = #{FMId,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelId != null">
+        PersonnelId = #{personnelId,jdbcType=VARCHAR},
+      </if>
+      <if test="classNo != null">
+        ClassNo = #{classNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayExtentions">
+    update Pay_Extentions
+    set FMId = #{FMId,jdbcType=VARCHAR},
+      PersonnelId = #{personnelId,jdbcType=VARCHAR},
+      ClassNo = #{classNo,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+</mapper>

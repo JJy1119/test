@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayPlatformAccountAuthMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerId" />
+    <result column="Platform" jdbcType="VARCHAR" property="platform" />
+    <result column="UserId" jdbcType="VARCHAR" property="userId" />
+    <result column="PayPlatformAccountId" jdbcType="INTEGER" property="payPlatformAccountId" />
+    <result column="AuthCode" jdbcType="VARCHAR" property="authCode" />
+    <result column="RefreshToken" jdbcType="VARCHAR" property="refreshToken" />
+    <result column="Memo" jdbcType="VARCHAR" property="memo" />
+    <result column="RefreshDate" jdbcType="TIMESTAMP" property="refreshDate" />
+    <result column="ExpiryDate" jdbcType="TIMESTAMP" property="expiryDate" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="LastEditDate" jdbcType="TIMESTAMP" property="lastEditDate" />
+    <result column="PayPlatformAccount" jdbcType="INTEGER" property="payPlatformAccount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PartnerId, Platform, UserId, PayPlatformAccountId, AuthCode, RefreshToken, Memo, 
+    RefreshDate, ExpiryDate, CreateDate, LastEditDate, PayPlatformAccount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_PlatformAccountAuth
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay_PlatformAccountAuth
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    insert into Pay_PlatformAccountAuth (Id, PartnerId, Platform, 
+      UserId, PayPlatformAccountId, AuthCode, 
+      RefreshToken, Memo, RefreshDate, 
+      ExpiryDate, CreateDate, LastEditDate, 
+      PayPlatformAccount)
+    values (#{id,jdbcType=BIGINT}, #{partnerId,jdbcType=INTEGER}, #{platform,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{payPlatformAccountId,jdbcType=INTEGER}, #{authCode,jdbcType=VARCHAR}, 
+      #{refreshToken,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{refreshDate,jdbcType=TIMESTAMP}, 
+      #{expiryDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, #{lastEditDate,jdbcType=TIMESTAMP}, 
+      #{payPlatformAccount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    insert into Pay_PlatformAccountAuth
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="partnerId != null">
+        PartnerId,
+      </if>
+      <if test="platform != null">
+        Platform,
+      </if>
+      <if test="userId != null">
+        UserId,
+      </if>
+      <if test="payPlatformAccountId != null">
+        PayPlatformAccountId,
+      </if>
+      <if test="authCode != null">
+        AuthCode,
+      </if>
+      <if test="refreshToken != null">
+        RefreshToken,
+      </if>
+      <if test="memo != null">
+        Memo,
+      </if>
+      <if test="refreshDate != null">
+        RefreshDate,
+      </if>
+      <if test="expiryDate != null">
+        ExpiryDate,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="lastEditDate != null">
+        LastEditDate,
+      </if>
+      <if test="payPlatformAccount != null">
+        PayPlatformAccount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="payPlatformAccountId != null">
+        #{payPlatformAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="authCode != null">
+        #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshToken != null">
+        #{refreshToken,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshDate != null">
+        #{refreshDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiryDate != null">
+        #{expiryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditDate != null">
+        #{lastEditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payPlatformAccount != null">
+        #{payPlatformAccount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    update Pay_PlatformAccountAuth
+    <set>
+      <if test="partnerId != null">
+        PartnerId = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        Platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        UserId = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="payPlatformAccountId != null">
+        PayPlatformAccountId = #{payPlatformAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="authCode != null">
+        AuthCode = #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshToken != null">
+        RefreshToken = #{refreshToken,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        Memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshDate != null">
+        RefreshDate = #{refreshDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiryDate != null">
+        ExpiryDate = #{expiryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditDate != null">
+        LastEditDate = #{lastEditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payPlatformAccount != null">
+        PayPlatformAccount = #{payPlatformAccount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    update Pay_PlatformAccountAuth
+    set PartnerId = #{partnerId,jdbcType=INTEGER},
+      Platform = #{platform,jdbcType=VARCHAR},
+      UserId = #{userId,jdbcType=VARCHAR},
+      PayPlatformAccountId = #{payPlatformAccountId,jdbcType=INTEGER},
+      AuthCode = #{authCode,jdbcType=VARCHAR},
+      RefreshToken = #{refreshToken,jdbcType=VARCHAR},
+      Memo = #{memo,jdbcType=VARCHAR},
+      RefreshDate = #{refreshDate,jdbcType=TIMESTAMP},
+      ExpiryDate = #{expiryDate,jdbcType=TIMESTAMP},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      LastEditDate = #{lastEditDate,jdbcType=TIMESTAMP},
+      PayPlatformAccount = #{payPlatformAccount,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerId" />
+    <result column="Platform" jdbcType="VARCHAR" property="platform" />
+    <result column="UserId" jdbcType="VARCHAR" property="userId" />
+    <result column="PayPlatformAccountId" jdbcType="INTEGER" property="payPlatformAccountId" />
+    <result column="AuthCode" jdbcType="VARCHAR" property="authCode" />
+    <result column="RefreshToken" jdbcType="VARCHAR" property="refreshToken" />
+    <result column="Memo" jdbcType="VARCHAR" property="memo" />
+    <result column="RefreshDate" jdbcType="TIMESTAMP" property="refreshDate" />
+    <result column="ExpiryDate" jdbcType="TIMESTAMP" property="expiryDate" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="LastEditDate" jdbcType="TIMESTAMP" property="lastEditDate" />
+    <result column="PayPlatformAccount" jdbcType="INTEGER" property="payPlatformAccount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PartnerId, Platform, UserId, PayPlatformAccountId, AuthCode, RefreshToken, Memo, 
+    RefreshDate, ExpiryDate, CreateDate, LastEditDate, PayPlatformAccount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_PlatformAccountAuth
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay_PlatformAccountAuth
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    insert into Pay_PlatformAccountAuth (Id, PartnerId, Platform, 
+      UserId, PayPlatformAccountId, AuthCode, 
+      RefreshToken, Memo, RefreshDate, 
+      ExpiryDate, CreateDate, LastEditDate, 
+      PayPlatformAccount)
+    values (#{id,jdbcType=BIGINT}, #{partnerId,jdbcType=INTEGER}, #{platform,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{payPlatformAccountId,jdbcType=INTEGER}, #{authCode,jdbcType=VARCHAR}, 
+      #{refreshToken,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{refreshDate,jdbcType=TIMESTAMP}, 
+      #{expiryDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, #{lastEditDate,jdbcType=TIMESTAMP}, 
+      #{payPlatformAccount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    insert into Pay_PlatformAccountAuth
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="partnerId != null">
+        PartnerId,
+      </if>
+      <if test="platform != null">
+        Platform,
+      </if>
+      <if test="userId != null">
+        UserId,
+      </if>
+      <if test="payPlatformAccountId != null">
+        PayPlatformAccountId,
+      </if>
+      <if test="authCode != null">
+        AuthCode,
+      </if>
+      <if test="refreshToken != null">
+        RefreshToken,
+      </if>
+      <if test="memo != null">
+        Memo,
+      </if>
+      <if test="refreshDate != null">
+        RefreshDate,
+      </if>
+      <if test="expiryDate != null">
+        ExpiryDate,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="lastEditDate != null">
+        LastEditDate,
+      </if>
+      <if test="payPlatformAccount != null">
+        PayPlatformAccount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="payPlatformAccountId != null">
+        #{payPlatformAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="authCode != null">
+        #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshToken != null">
+        #{refreshToken,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshDate != null">
+        #{refreshDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiryDate != null">
+        #{expiryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditDate != null">
+        #{lastEditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payPlatformAccount != null">
+        #{payPlatformAccount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    update Pay_PlatformAccountAuth
+    <set>
+      <if test="partnerId != null">
+        PartnerId = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        Platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        UserId = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="payPlatformAccountId != null">
+        PayPlatformAccountId = #{payPlatformAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="authCode != null">
+        AuthCode = #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshToken != null">
+        RefreshToken = #{refreshToken,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        Memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshDate != null">
+        RefreshDate = #{refreshDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiryDate != null">
+        ExpiryDate = #{expiryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastEditDate != null">
+        LastEditDate = #{lastEditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payPlatformAccount != null">
+        PayPlatformAccount = #{payPlatformAccount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPlatformAccountAuth">
+    update Pay_PlatformAccountAuth
+    set PartnerId = #{partnerId,jdbcType=INTEGER},
+      Platform = #{platform,jdbcType=VARCHAR},
+      UserId = #{userId,jdbcType=VARCHAR},
+      PayPlatformAccountId = #{payPlatformAccountId,jdbcType=INTEGER},
+      AuthCode = #{authCode,jdbcType=VARCHAR},
+      RefreshToken = #{refreshToken,jdbcType=VARCHAR},
+      Memo = #{memo,jdbcType=VARCHAR},
+      RefreshDate = #{refreshDate,jdbcType=TIMESTAMP},
+      ExpiryDate = #{expiryDate,jdbcType=TIMESTAMP},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      LastEditDate = #{lastEditDate,jdbcType=TIMESTAMP},
+      PayPlatformAccount = #{payPlatformAccount,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

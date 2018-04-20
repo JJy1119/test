@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayPromotionScopeMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPromotionScope">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="PayPromotionId" jdbcType="INTEGER" property="payPromotionId" />
+    <result column="Scope" jdbcType="VARCHAR" property="scope" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="Exclude" jdbcType="BIT" property="exclude" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PayPromotionId, Scope, Type, Exclude
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_PromotionScope
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_PromotionScope
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPromotionScope">
+    insert into Pay_PromotionScope (Id, PayPromotionId, Scope, 
+      Type, Exclude)
+    values (#{id,jdbcType=INTEGER}, #{payPromotionId,jdbcType=INTEGER}, #{scope,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{exclude,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPromotionScope">
+    insert into Pay_PromotionScope
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="payPromotionId != null">
+        PayPromotionId,
+      </if>
+      <if test="scope != null">
+        Scope,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="exclude != null">
+        Exclude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="payPromotionId != null">
+        #{payPromotionId,jdbcType=INTEGER},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="exclude != null">
+        #{exclude,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPromotionScope">
+    update Pay_PromotionScope
+    <set>
+      <if test="payPromotionId != null">
+        PayPromotionId = #{payPromotionId,jdbcType=INTEGER},
+      </if>
+      <if test="scope != null">
+        Scope = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="exclude != null">
+        Exclude = #{exclude,jdbcType=BIT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPromotionScope">
+    update Pay_PromotionScope
+    set PayPromotionId = #{payPromotionId,jdbcType=INTEGER},
+      Scope = #{scope,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      Exclude = #{exclude,jdbcType=BIT}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPromotionScope">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="PayPromotionId" jdbcType="INTEGER" property="payPromotionId" />
+    <result column="Scope" jdbcType="VARCHAR" property="scope" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="Exclude" jdbcType="BIT" property="exclude" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, PayPromotionId, Scope, Type, Exclude
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_PromotionScope
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_PromotionScope
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPromotionScope">
+    insert into Pay_PromotionScope (Id, PayPromotionId, Scope, 
+      Type, Exclude)
+    values (#{id,jdbcType=INTEGER}, #{payPromotionId,jdbcType=INTEGER}, #{scope,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{exclude,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPromotionScope">
+    insert into Pay_PromotionScope
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="payPromotionId != null">
+        PayPromotionId,
+      </if>
+      <if test="scope != null">
+        Scope,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="exclude != null">
+        Exclude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="payPromotionId != null">
+        #{payPromotionId,jdbcType=INTEGER},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="exclude != null">
+        #{exclude,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPromotionScope">
+    update Pay_PromotionScope
+    <set>
+      <if test="payPromotionId != null">
+        PayPromotionId = #{payPromotionId,jdbcType=INTEGER},
+      </if>
+      <if test="scope != null">
+        Scope = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="exclude != null">
+        Exclude = #{exclude,jdbcType=BIT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPromotionScope">
+    update Pay_PromotionScope
+    set PayPromotionId = #{payPromotionId,jdbcType=INTEGER},
+      Scope = #{scope,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      Exclude = #{exclude,jdbcType=BIT}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

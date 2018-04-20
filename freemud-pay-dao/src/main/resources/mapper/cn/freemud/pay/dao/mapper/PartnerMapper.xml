@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PartnerMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.Partner">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerName" jdbcType="VARCHAR" property="partnerName" />
+    <result column="OurAccount_Partner" jdbcType="VARCHAR" property="ourAccount_Partner" />
+    <result column="Logo" jdbcType="VARCHAR" property="logo" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="PartnerCode" jdbcType="VARCHAR" property="partnerCode" />
+    <result column="AppSecret" jdbcType="VARCHAR" property="appSecret" />
+    <result column="EBCode" jdbcType="VARCHAR" property="EBCode" />
+    <result column="EnableSMS" jdbcType="BIT" property="enableSMS" />
+    <result column="PartnerType" jdbcType="VARCHAR" property="partnerType" />
+    <result column="UnifyId" jdbcType="CHAR" property="unifyId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerName, OurAccount_Partner, Logo, Description, PartnerCode, AppSecret, EBCode, 
+    EnableSMS, PartnerType, UnifyId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Partner
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Partner
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.Partner">
+    insert into Partner (ID, PartnerName, OurAccount_Partner, 
+      Logo, Description, PartnerCode, 
+      AppSecret, EBCode, EnableSMS, 
+      PartnerType, UnifyId)
+    values (#{ID,jdbcType=INTEGER}, #{partnerName,jdbcType=VARCHAR}, #{ourAccount_Partner,jdbcType=VARCHAR}, 
+      #{logo,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{partnerCode,jdbcType=VARCHAR}, 
+      #{appSecret,jdbcType=VARCHAR}, #{EBCode,jdbcType=VARCHAR}, #{enableSMS,jdbcType=BIT}, 
+      #{partnerType,jdbcType=VARCHAR}, #{unifyId,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.Partner">
+    insert into Partner
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerName != null">
+        PartnerName,
+      </if>
+      <if test="ourAccount_Partner != null">
+        OurAccount_Partner,
+      </if>
+      <if test="logo != null">
+        Logo,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="partnerCode != null">
+        PartnerCode,
+      </if>
+      <if test="appSecret != null">
+        AppSecret,
+      </if>
+      <if test="EBCode != null">
+        EBCode,
+      </if>
+      <if test="enableSMS != null">
+        EnableSMS,
+      </if>
+      <if test="partnerType != null">
+        PartnerType,
+      </if>
+      <if test="unifyId != null">
+        UnifyId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerName != null">
+        #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="ourAccount_Partner != null">
+        #{ourAccount_Partner,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCode != null">
+        #{partnerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null">
+        #{appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="EBCode != null">
+        #{EBCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enableSMS != null">
+        #{enableSMS,jdbcType=BIT},
+      </if>
+      <if test="partnerType != null">
+        #{partnerType,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyId != null">
+        #{unifyId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.Partner">
+    update Partner
+    <set>
+      <if test="partnerName != null">
+        PartnerName = #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="ourAccount_Partner != null">
+        OurAccount_Partner = #{ourAccount_Partner,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        Logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCode != null">
+        PartnerCode = #{partnerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null">
+        AppSecret = #{appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="EBCode != null">
+        EBCode = #{EBCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enableSMS != null">
+        EnableSMS = #{enableSMS,jdbcType=BIT},
+      </if>
+      <if test="partnerType != null">
+        PartnerType = #{partnerType,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyId != null">
+        UnifyId = #{unifyId,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.Partner">
+    update Partner
+    set PartnerName = #{partnerName,jdbcType=VARCHAR},
+      OurAccount_Partner = #{ourAccount_Partner,jdbcType=VARCHAR},
+      Logo = #{logo,jdbcType=VARCHAR},
+      Description = #{description,jdbcType=VARCHAR},
+      PartnerCode = #{partnerCode,jdbcType=VARCHAR},
+      AppSecret = #{appSecret,jdbcType=VARCHAR},
+      EBCode = #{EBCode,jdbcType=VARCHAR},
+      EnableSMS = #{enableSMS,jdbcType=BIT},
+      PartnerType = #{partnerType,jdbcType=VARCHAR},
+      UnifyId = #{unifyId,jdbcType=CHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.Partner">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerName" jdbcType="VARCHAR" property="partnerName" />
+    <result column="OurAccount_Partner" jdbcType="VARCHAR" property="ourAccount_Partner" />
+    <result column="Logo" jdbcType="VARCHAR" property="logo" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="PartnerCode" jdbcType="VARCHAR" property="partnerCode" />
+    <result column="AppSecret" jdbcType="VARCHAR" property="appSecret" />
+    <result column="EBCode" jdbcType="VARCHAR" property="EBCode" />
+    <result column="EnableSMS" jdbcType="BIT" property="enableSMS" />
+    <result column="PartnerType" jdbcType="VARCHAR" property="partnerType" />
+    <result column="UnifyId" jdbcType="CHAR" property="unifyId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerName, OurAccount_Partner, Logo, Description, PartnerCode, AppSecret, EBCode, 
+    EnableSMS, PartnerType, UnifyId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Partner
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Partner
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.Partner">
+    insert into Partner (ID, PartnerName, OurAccount_Partner, 
+      Logo, Description, PartnerCode, 
+      AppSecret, EBCode, EnableSMS, 
+      PartnerType, UnifyId)
+    values (#{ID,jdbcType=INTEGER}, #{partnerName,jdbcType=VARCHAR}, #{ourAccount_Partner,jdbcType=VARCHAR}, 
+      #{logo,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{partnerCode,jdbcType=VARCHAR}, 
+      #{appSecret,jdbcType=VARCHAR}, #{EBCode,jdbcType=VARCHAR}, #{enableSMS,jdbcType=BIT}, 
+      #{partnerType,jdbcType=VARCHAR}, #{unifyId,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.Partner">
+    insert into Partner
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerName != null">
+        PartnerName,
+      </if>
+      <if test="ourAccount_Partner != null">
+        OurAccount_Partner,
+      </if>
+      <if test="logo != null">
+        Logo,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="partnerCode != null">
+        PartnerCode,
+      </if>
+      <if test="appSecret != null">
+        AppSecret,
+      </if>
+      <if test="EBCode != null">
+        EBCode,
+      </if>
+      <if test="enableSMS != null">
+        EnableSMS,
+      </if>
+      <if test="partnerType != null">
+        PartnerType,
+      </if>
+      <if test="unifyId != null">
+        UnifyId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerName != null">
+        #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="ourAccount_Partner != null">
+        #{ourAccount_Partner,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCode != null">
+        #{partnerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null">
+        #{appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="EBCode != null">
+        #{EBCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enableSMS != null">
+        #{enableSMS,jdbcType=BIT},
+      </if>
+      <if test="partnerType != null">
+        #{partnerType,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyId != null">
+        #{unifyId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.Partner">
+    update Partner
+    <set>
+      <if test="partnerName != null">
+        PartnerName = #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="ourAccount_Partner != null">
+        OurAccount_Partner = #{ourAccount_Partner,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        Logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerCode != null">
+        PartnerCode = #{partnerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null">
+        AppSecret = #{appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="EBCode != null">
+        EBCode = #{EBCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enableSMS != null">
+        EnableSMS = #{enableSMS,jdbcType=BIT},
+      </if>
+      <if test="partnerType != null">
+        PartnerType = #{partnerType,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyId != null">
+        UnifyId = #{unifyId,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.Partner">
+    update Partner
+    set PartnerName = #{partnerName,jdbcType=VARCHAR},
+      OurAccount_Partner = #{ourAccount_Partner,jdbcType=VARCHAR},
+      Logo = #{logo,jdbcType=VARCHAR},
+      Description = #{description,jdbcType=VARCHAR},
+      PartnerCode = #{partnerCode,jdbcType=VARCHAR},
+      AppSecret = #{appSecret,jdbcType=VARCHAR},
+      EBCode = #{EBCode,jdbcType=VARCHAR},
+      EnableSMS = #{enableSMS,jdbcType=BIT},
+      PartnerType = #{partnerType,jdbcType=VARCHAR},
+      UnifyId = #{unifyId,jdbcType=CHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

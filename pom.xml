@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.freemud</groupId>
+    <artifactId>freemud-pay</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>freemud-pay-service</module>
+        <module>freemud-pay-dao</module>
+        <module>freemud-pay-manager</module>
+        <module>freemud-pay-api</module>
+        <module>freemud-framework</module>
+        <module>freemud-framework-redis</module>
+        <module>freemud-framework-msmq</module>
+        <module>freemud-pay-consumer</module>
+        <module>freemud-framework-caching-redis</module>
+        <module>freemud-framework-druid</module>
+        <module>freemud-pay-entity</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>freemud-pay</name>
+    <description>支付项目</description>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <com.alibaba.druid-spring-boot-starter>1.1.6</com.alibaba.druid-spring-boot-starter>
+        <javax.servlet.servletapi.version>2.5</javax.servlet.servletapi.version>
+        <org.mybatis.mybatis-spring.version>1.3.1</org.mybatis.mybatis-spring.version>
+        <org.springframework.spring-jdbc>4.3.8.RELEASE</org.springframework.spring-jdbc>
+        <org.mybatis.mybatis.version>3.4.5</org.mybatis.mybatis.version>
+        <commons-io.version>1.4</commons-io.version>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${javax.servlet.servletapi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${org.mybatis.mybatis-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${org.springframework.spring-jdbc}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${org.mybatis.mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${com.alibaba.druid-spring-boot-starter}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>public Repository</name>
+            <url>http://115.159.2.190:7654/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>bintray</id>
+            <name>bintray</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
+
+</project>

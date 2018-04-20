@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.TebCodeMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.TebCode">
+    <id column="PKID" jdbcType="INTEGER" property="pkid" />
+    <result column="EBCode" jdbcType="VARCHAR" property="ebcode" />
+    <result column="EBName" jdbcType="VARCHAR" property="ebname" />
+    <result column="Memo" jdbcType="VARCHAR" property="memo" />
+    <result column="EBCodeMapTo" jdbcType="VARCHAR" property="ebcodemapto" />
+    <result column="IsOneLine" jdbcType="VARCHAR" property="isoneline" />
+    <result column="SendCodeType" jdbcType="VARCHAR" property="sendcodetype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PKID, EBCode, EBName, Memo, EBCodeMapTo, IsOneLine, SendCodeType
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tEBCode
+    where PKID = #{pkid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tEBCode
+    where PKID = #{pkid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.TebCode">
+    insert into tEBCode (PKID, EBCode, EBName, 
+      Memo, EBCodeMapTo, IsOneLine, 
+      SendCodeType)
+    values (#{pkid,jdbcType=INTEGER}, #{ebcode,jdbcType=VARCHAR}, #{ebname,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{ebcodemapto,jdbcType=VARCHAR}, #{isoneline,jdbcType=VARCHAR}, 
+      #{sendcodetype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.TebCode">
+    insert into tEBCode
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkid != null">
+        PKID,
+      </if>
+      <if test="ebcode != null">
+        EBCode,
+      </if>
+      <if test="ebname != null">
+        EBName,
+      </if>
+      <if test="memo != null">
+        Memo,
+      </if>
+      <if test="ebcodemapto != null">
+        EBCodeMapTo,
+      </if>
+      <if test="isoneline != null">
+        IsOneLine,
+      </if>
+      <if test="sendcodetype != null">
+        SendCodeType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkid != null">
+        #{pkid,jdbcType=INTEGER},
+      </if>
+      <if test="ebcode != null">
+        #{ebcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ebname != null">
+        #{ebname,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="ebcodemapto != null">
+        #{ebcodemapto,jdbcType=VARCHAR},
+      </if>
+      <if test="isoneline != null">
+        #{isoneline,jdbcType=VARCHAR},
+      </if>
+      <if test="sendcodetype != null">
+        #{sendcodetype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.TebCode">
+    update tEBCode
+    <set>
+      <if test="ebcode != null">
+        EBCode = #{ebcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ebname != null">
+        EBName = #{ebname,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        Memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="ebcodemapto != null">
+        EBCodeMapTo = #{ebcodemapto,jdbcType=VARCHAR},
+      </if>
+      <if test="isoneline != null">
+        IsOneLine = #{isoneline,jdbcType=VARCHAR},
+      </if>
+      <if test="sendcodetype != null">
+        SendCodeType = #{sendcodetype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PKID = #{pkid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.TebCode">
+    update tEBCode
+    set EBCode = #{ebcode,jdbcType=VARCHAR},
+      EBName = #{ebname,jdbcType=VARCHAR},
+      Memo = #{memo,jdbcType=VARCHAR},
+      EBCodeMapTo = #{ebcodemapto,jdbcType=VARCHAR},
+      IsOneLine = #{isoneline,jdbcType=VARCHAR},
+      SendCodeType = #{sendcodetype,jdbcType=VARCHAR}
+    where PKID = #{pkid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.TebCode">
+    <id column="PKID" jdbcType="INTEGER" property="pkid" />
+    <result column="EBCode" jdbcType="VARCHAR" property="ebcode" />
+    <result column="EBName" jdbcType="VARCHAR" property="ebname" />
+    <result column="Memo" jdbcType="VARCHAR" property="memo" />
+    <result column="EBCodeMapTo" jdbcType="VARCHAR" property="ebcodemapto" />
+    <result column="IsOneLine" jdbcType="VARCHAR" property="isoneline" />
+    <result column="SendCodeType" jdbcType="VARCHAR" property="sendcodetype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PKID, EBCode, EBName, Memo, EBCodeMapTo, IsOneLine, SendCodeType
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tEBCode
+    where PKID = #{pkid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tEBCode
+    where PKID = #{pkid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.TebCode">
+    insert into tEBCode (PKID, EBCode, EBName, 
+      Memo, EBCodeMapTo, IsOneLine, 
+      SendCodeType)
+    values (#{pkid,jdbcType=INTEGER}, #{ebcode,jdbcType=VARCHAR}, #{ebname,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{ebcodemapto,jdbcType=VARCHAR}, #{isoneline,jdbcType=VARCHAR}, 
+      #{sendcodetype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.TebCode">
+    insert into tEBCode
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkid != null">
+        PKID,
+      </if>
+      <if test="ebcode != null">
+        EBCode,
+      </if>
+      <if test="ebname != null">
+        EBName,
+      </if>
+      <if test="memo != null">
+        Memo,
+      </if>
+      <if test="ebcodemapto != null">
+        EBCodeMapTo,
+      </if>
+      <if test="isoneline != null">
+        IsOneLine,
+      </if>
+      <if test="sendcodetype != null">
+        SendCodeType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkid != null">
+        #{pkid,jdbcType=INTEGER},
+      </if>
+      <if test="ebcode != null">
+        #{ebcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ebname != null">
+        #{ebname,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="ebcodemapto != null">
+        #{ebcodemapto,jdbcType=VARCHAR},
+      </if>
+      <if test="isoneline != null">
+        #{isoneline,jdbcType=VARCHAR},
+      </if>
+      <if test="sendcodetype != null">
+        #{sendcodetype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.TebCode">
+    update tEBCode
+    <set>
+      <if test="ebcode != null">
+        EBCode = #{ebcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ebname != null">
+        EBName = #{ebname,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        Memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="ebcodemapto != null">
+        EBCodeMapTo = #{ebcodemapto,jdbcType=VARCHAR},
+      </if>
+      <if test="isoneline != null">
+        IsOneLine = #{isoneline,jdbcType=VARCHAR},
+      </if>
+      <if test="sendcodetype != null">
+        SendCodeType = #{sendcodetype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PKID = #{pkid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.TebCode">
+    update tEBCode
+    set EBCode = #{ebcode,jdbcType=VARCHAR},
+      EBName = #{ebname,jdbcType=VARCHAR},
+      Memo = #{memo,jdbcType=VARCHAR},
+      EBCodeMapTo = #{ebcodemapto,jdbcType=VARCHAR},
+      IsOneLine = #{isoneline,jdbcType=VARCHAR},
+      SendCodeType = #{sendcodetype,jdbcType=VARCHAR}
+    where PKID = #{pkid,jdbcType=INTEGER}
+  </update>
+</mapper>

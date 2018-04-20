@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayPlatformAccountMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPlatformAccount">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerId" />
+    <result column="Platform" jdbcType="VARCHAR" property="platform" />
+    <result column="PlatformPartnerId" jdbcType="VARCHAR" property="platformPartnerId" />
+    <result column="PlatformAppKey" jdbcType="VARCHAR" property="platformAppKey" />
+    <result column="PlatformSellerId" jdbcType="VARCHAR" property="platformSellerId" />
+    <result column="PlatformSellerEmail" jdbcType="VARCHAR" property="platformSellerEmail" />
+    <result column="PlatformSubject" jdbcType="VARCHAR" property="platformSubject" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="SignChar" jdbcType="VARCHAR" property="signChar" />
+    <result column="CerFile" jdbcType="VARCHAR" property="cerFile" />
+    <result column="CerPassword" jdbcType="VARCHAR" property="cerPassword" />
+    <result column="PlatformSubAccountId" jdbcType="VARCHAR" property="platformSubAccountId" />
+    <result column="Enable" jdbcType="BIT" property="enable" />
+    <result column="PlatformAppId" jdbcType="VARCHAR" property="platformAppId" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="AgentId" jdbcType="VARCHAR" property="agentId" />
+    <result column="AuthCode" jdbcType="VARCHAR" property="authCode" />
+    <result column="Memo" jdbcType="VARCHAR" property="memo" />
+    <result column="FeeType" jdbcType="VARCHAR" property="feeType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerId, Platform, PlatformPartnerId, PlatformAppKey, PlatformSellerId, PlatformSellerEmail, 
+    PlatformSubject, CreateUser, CreateDate, SignChar, CerFile, CerPassword, PlatformSubAccountId, 
+    Enable, PlatformAppId, Password, AgentId, AuthCode, Memo, FeeType
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_PlatformAccount
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_PlatformAccount
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPlatformAccount">
+    insert into Pay_PlatformAccount (ID, PartnerId, Platform, 
+      PlatformPartnerId, PlatformAppKey, PlatformSellerId, 
+      PlatformSellerEmail, PlatformSubject, CreateUser, 
+      CreateDate, SignChar, CerFile, 
+      CerPassword, PlatformSubAccountId, Enable, 
+      PlatformAppId, Password, AgentId, 
+      AuthCode, Memo, FeeType
+      )
+    values (#{ID,jdbcType=INTEGER}, #{partnerId,jdbcType=INTEGER}, #{platform,jdbcType=VARCHAR}, 
+      #{platformPartnerId,jdbcType=VARCHAR}, #{platformAppKey,jdbcType=VARCHAR}, #{platformSellerId,jdbcType=VARCHAR}, 
+      #{platformSellerEmail,jdbcType=VARCHAR}, #{platformSubject,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{signChar,jdbcType=VARCHAR}, #{cerFile,jdbcType=VARCHAR}, 
+      #{cerPassword,jdbcType=VARCHAR}, #{platformSubAccountId,jdbcType=VARCHAR}, #{enable,jdbcType=BIT}, 
+      #{platformAppId,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{agentId,jdbcType=VARCHAR}, 
+      #{authCode,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{feeType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPlatformAccount">
+    insert into Pay_PlatformAccount
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerId != null">
+        PartnerId,
+      </if>
+      <if test="platform != null">
+        Platform,
+      </if>
+      <if test="platformPartnerId != null">
+        PlatformPartnerId,
+      </if>
+      <if test="platformAppKey != null">
+        PlatformAppKey,
+      </if>
+      <if test="platformSellerId != null">
+        PlatformSellerId,
+      </if>
+      <if test="platformSellerEmail != null">
+        PlatformSellerEmail,
+      </if>
+      <if test="platformSubject != null">
+        PlatformSubject,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="signChar != null">
+        SignChar,
+      </if>
+      <if test="cerFile != null">
+        CerFile,
+      </if>
+      <if test="cerPassword != null">
+        CerPassword,
+      </if>
+      <if test="platformSubAccountId != null">
+        PlatformSubAccountId,
+      </if>
+      <if test="enable != null">
+        Enable,
+      </if>
+      <if test="platformAppId != null">
+        PlatformAppId,
+      </if>
+      <if test="password != null">
+        Password,
+      </if>
+      <if test="agentId != null">
+        AgentId,
+      </if>
+      <if test="authCode != null">
+        AuthCode,
+      </if>
+      <if test="memo != null">
+        Memo,
+      </if>
+      <if test="feeType != null">
+        FeeType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="platformPartnerId != null">
+        #{platformPartnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformAppKey != null">
+        #{platformAppKey,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSellerId != null">
+        #{platformSellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSellerEmail != null">
+        #{platformSellerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSubject != null">
+        #{platformSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signChar != null">
+        #{signChar,jdbcType=VARCHAR},
+      </if>
+      <if test="cerFile != null">
+        #{cerFile,jdbcType=VARCHAR},
+      </if>
+      <if test="cerPassword != null">
+        #{cerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSubAccountId != null">
+        #{platformSubAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=BIT},
+      </if>
+      <if test="platformAppId != null">
+        #{platformAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null">
+        #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="authCode != null">
+        #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeType != null">
+        #{feeType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPlatformAccount">
+    update Pay_PlatformAccount
+    <set>
+      <if test="partnerId != null">
+        PartnerId = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        Platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="platformPartnerId != null">
+        PlatformPartnerId = #{platformPartnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformAppKey != null">
+        PlatformAppKey = #{platformAppKey,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSellerId != null">
+        PlatformSellerId = #{platformSellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSellerEmail != null">
+        PlatformSellerEmail = #{platformSellerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSubject != null">
+        PlatformSubject = #{platformSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signChar != null">
+        SignChar = #{signChar,jdbcType=VARCHAR},
+      </if>
+      <if test="cerFile != null">
+        CerFile = #{cerFile,jdbcType=VARCHAR},
+      </if>
+      <if test="cerPassword != null">
+        CerPassword = #{cerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSubAccountId != null">
+        PlatformSubAccountId = #{platformSubAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        Enable = #{enable,jdbcType=BIT},
+      </if>
+      <if test="platformAppId != null">
+        PlatformAppId = #{platformAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        Password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null">
+        AgentId = #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="authCode != null">
+        AuthCode = #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        Memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeType != null">
+        FeeType = #{feeType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPlatformAccount">
+    update Pay_PlatformAccount
+    set PartnerId = #{partnerId,jdbcType=INTEGER},
+      Platform = #{platform,jdbcType=VARCHAR},
+      PlatformPartnerId = #{platformPartnerId,jdbcType=VARCHAR},
+      PlatformAppKey = #{platformAppKey,jdbcType=VARCHAR},
+      PlatformSellerId = #{platformSellerId,jdbcType=VARCHAR},
+      PlatformSellerEmail = #{platformSellerEmail,jdbcType=VARCHAR},
+      PlatformSubject = #{platformSubject,jdbcType=VARCHAR},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      SignChar = #{signChar,jdbcType=VARCHAR},
+      CerFile = #{cerFile,jdbcType=VARCHAR},
+      CerPassword = #{cerPassword,jdbcType=VARCHAR},
+      PlatformSubAccountId = #{platformSubAccountId,jdbcType=VARCHAR},
+      Enable = #{enable,jdbcType=BIT},
+      PlatformAppId = #{platformAppId,jdbcType=VARCHAR},
+      Password = #{password,jdbcType=VARCHAR},
+      AgentId = #{agentId,jdbcType=VARCHAR},
+      AuthCode = #{authCode,jdbcType=VARCHAR},
+      Memo = #{memo,jdbcType=VARCHAR},
+      FeeType = #{feeType,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayPlatformAccount">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PartnerId" jdbcType="INTEGER" property="partnerId" />
+    <result column="Platform" jdbcType="VARCHAR" property="platform" />
+    <result column="PlatformPartnerId" jdbcType="VARCHAR" property="platformPartnerId" />
+    <result column="PlatformAppKey" jdbcType="VARCHAR" property="platformAppKey" />
+    <result column="PlatformSellerId" jdbcType="VARCHAR" property="platformSellerId" />
+    <result column="PlatformSellerEmail" jdbcType="VARCHAR" property="platformSellerEmail" />
+    <result column="PlatformSubject" jdbcType="VARCHAR" property="platformSubject" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="SignChar" jdbcType="VARCHAR" property="signChar" />
+    <result column="CerFile" jdbcType="VARCHAR" property="cerFile" />
+    <result column="CerPassword" jdbcType="VARCHAR" property="cerPassword" />
+    <result column="PlatformSubAccountId" jdbcType="VARCHAR" property="platformSubAccountId" />
+    <result column="Enable" jdbcType="BIT" property="enable" />
+    <result column="PlatformAppId" jdbcType="VARCHAR" property="platformAppId" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="AgentId" jdbcType="VARCHAR" property="agentId" />
+    <result column="AuthCode" jdbcType="VARCHAR" property="authCode" />
+    <result column="Memo" jdbcType="VARCHAR" property="memo" />
+    <result column="FeeType" jdbcType="VARCHAR" property="feeType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PartnerId, Platform, PlatformPartnerId, PlatformAppKey, PlatformSellerId, PlatformSellerEmail, 
+    PlatformSubject, CreateUser, CreateDate, SignChar, CerFile, CerPassword, PlatformSubAccountId, 
+    Enable, PlatformAppId, Password, AgentId, AuthCode, Memo, FeeType
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_PlatformAccount
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Pay_PlatformAccount
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayPlatformAccount">
+    insert into Pay_PlatformAccount (ID, PartnerId, Platform, 
+      PlatformPartnerId, PlatformAppKey, PlatformSellerId, 
+      PlatformSellerEmail, PlatformSubject, CreateUser, 
+      CreateDate, SignChar, CerFile, 
+      CerPassword, PlatformSubAccountId, Enable, 
+      PlatformAppId, Password, AgentId, 
+      AuthCode, Memo, FeeType
+      )
+    values (#{ID,jdbcType=INTEGER}, #{partnerId,jdbcType=INTEGER}, #{platform,jdbcType=VARCHAR}, 
+      #{platformPartnerId,jdbcType=VARCHAR}, #{platformAppKey,jdbcType=VARCHAR}, #{platformSellerId,jdbcType=VARCHAR}, 
+      #{platformSellerEmail,jdbcType=VARCHAR}, #{platformSubject,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{signChar,jdbcType=VARCHAR}, #{cerFile,jdbcType=VARCHAR}, 
+      #{cerPassword,jdbcType=VARCHAR}, #{platformSubAccountId,jdbcType=VARCHAR}, #{enable,jdbcType=BIT}, 
+      #{platformAppId,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{agentId,jdbcType=VARCHAR}, 
+      #{authCode,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{feeType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayPlatformAccount">
+    insert into Pay_PlatformAccount
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="partnerId != null">
+        PartnerId,
+      </if>
+      <if test="platform != null">
+        Platform,
+      </if>
+      <if test="platformPartnerId != null">
+        PlatformPartnerId,
+      </if>
+      <if test="platformAppKey != null">
+        PlatformAppKey,
+      </if>
+      <if test="platformSellerId != null">
+        PlatformSellerId,
+      </if>
+      <if test="platformSellerEmail != null">
+        PlatformSellerEmail,
+      </if>
+      <if test="platformSubject != null">
+        PlatformSubject,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="signChar != null">
+        SignChar,
+      </if>
+      <if test="cerFile != null">
+        CerFile,
+      </if>
+      <if test="cerPassword != null">
+        CerPassword,
+      </if>
+      <if test="platformSubAccountId != null">
+        PlatformSubAccountId,
+      </if>
+      <if test="enable != null">
+        Enable,
+      </if>
+      <if test="platformAppId != null">
+        PlatformAppId,
+      </if>
+      <if test="password != null">
+        Password,
+      </if>
+      <if test="agentId != null">
+        AgentId,
+      </if>
+      <if test="authCode != null">
+        AuthCode,
+      </if>
+      <if test="memo != null">
+        Memo,
+      </if>
+      <if test="feeType != null">
+        FeeType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="platformPartnerId != null">
+        #{platformPartnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformAppKey != null">
+        #{platformAppKey,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSellerId != null">
+        #{platformSellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSellerEmail != null">
+        #{platformSellerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSubject != null">
+        #{platformSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signChar != null">
+        #{signChar,jdbcType=VARCHAR},
+      </if>
+      <if test="cerFile != null">
+        #{cerFile,jdbcType=VARCHAR},
+      </if>
+      <if test="cerPassword != null">
+        #{cerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSubAccountId != null">
+        #{platformSubAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=BIT},
+      </if>
+      <if test="platformAppId != null">
+        #{platformAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null">
+        #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="authCode != null">
+        #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeType != null">
+        #{feeType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayPlatformAccount">
+    update Pay_PlatformAccount
+    <set>
+      <if test="partnerId != null">
+        PartnerId = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="platform != null">
+        Platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="platformPartnerId != null">
+        PlatformPartnerId = #{platformPartnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformAppKey != null">
+        PlatformAppKey = #{platformAppKey,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSellerId != null">
+        PlatformSellerId = #{platformSellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSellerEmail != null">
+        PlatformSellerEmail = #{platformSellerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSubject != null">
+        PlatformSubject = #{platformSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signChar != null">
+        SignChar = #{signChar,jdbcType=VARCHAR},
+      </if>
+      <if test="cerFile != null">
+        CerFile = #{cerFile,jdbcType=VARCHAR},
+      </if>
+      <if test="cerPassword != null">
+        CerPassword = #{cerPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="platformSubAccountId != null">
+        PlatformSubAccountId = #{platformSubAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        Enable = #{enable,jdbcType=BIT},
+      </if>
+      <if test="platformAppId != null">
+        PlatformAppId = #{platformAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        Password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null">
+        AgentId = #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="authCode != null">
+        AuthCode = #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        Memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeType != null">
+        FeeType = #{feeType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayPlatformAccount">
+    update Pay_PlatformAccount
+    set PartnerId = #{partnerId,jdbcType=INTEGER},
+      Platform = #{platform,jdbcType=VARCHAR},
+      PlatformPartnerId = #{platformPartnerId,jdbcType=VARCHAR},
+      PlatformAppKey = #{platformAppKey,jdbcType=VARCHAR},
+      PlatformSellerId = #{platformSellerId,jdbcType=VARCHAR},
+      PlatformSellerEmail = #{platformSellerEmail,jdbcType=VARCHAR},
+      PlatformSubject = #{platformSubject,jdbcType=VARCHAR},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      SignChar = #{signChar,jdbcType=VARCHAR},
+      CerFile = #{cerFile,jdbcType=VARCHAR},
+      CerPassword = #{cerPassword,jdbcType=VARCHAR},
+      PlatformSubAccountId = #{platformSubAccountId,jdbcType=VARCHAR},
+      Enable = #{enable,jdbcType=BIT},
+      PlatformAppId = #{platformAppId,jdbcType=VARCHAR},
+      Password = #{password,jdbcType=VARCHAR},
+      AgentId = #{agentId,jdbcType=VARCHAR},
+      AuthCode = #{authCode,jdbcType=VARCHAR},
+      Memo = #{memo,jdbcType=VARCHAR},
+      FeeType = #{feeType,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

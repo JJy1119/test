@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.Pay">
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="Store_Id" jdbcType="VARCHAR" property="store_Id" />
+    <result column="Station_Id" jdbcType="VARCHAR" property="station_Id" />
+    <result column="Operator_Id" jdbcType="VARCHAR" property="operator_Id" />
+    <result column="Partner" jdbcType="VARCHAR" property="partner" />
+    <result column="PartnerAccount" jdbcType="VARCHAR" property="partnerAccount" />
+    <result column="PartnerOrderID" jdbcType="VARCHAR" property="partnerOrderID" />
+    <result column="PlatformTradeAccount" jdbcType="VARCHAR" property="platformTradeAccount" />
+    <result column="PlatformTradeNumber" jdbcType="VARCHAR" property="platformTradeNumber" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="Subject" jdbcType="VARCHAR" property="subject" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CancelUser" jdbcType="VARCHAR" property="cancelUser" />
+    <result column="CancelDate" jdbcType="TIMESTAMP" property="cancelDate" />
+    <result column="Trans_Id" jdbcType="VARCHAR" property="trans_Id" />
+    <result column="ZhuiHuOrderId" jdbcType="VARCHAR" property="zhuiHuOrderId" />
+    <result column="AlipayState" jdbcType="INTEGER" property="alipayState" />
+    <result column="PlatformPartnerID" jdbcType="VARCHAR" property="platformPartnerID" />
+    <result column="PartnerID" jdbcType="INTEGER" property="partnerID" />
+    <result column="PlatformBuyerUserId" jdbcType="VARCHAR" property="platformBuyerUserId" />
+    <result column="Platform" jdbcType="VARCHAR" property="platform" />
+    <result column="mcoupon" jdbcType="DECIMAL" property="mcoupon" />
+    <result column="BusinessDate" jdbcType="VARCHAR" property="businessDate" />
+    <result column="OrginalPayId" jdbcType="BIGINT" property="orginalPayId" />
+    <result column="pcoupon" jdbcType="DECIMAL" property="pcoupon" />
+    <result column="LiquidatorCommissionRate" jdbcType="DECIMAL" property="liquidatorCommissionRate" />
+    <result column="LiquidatorCommissionFee" jdbcType="DECIMAL" property="liquidatorCommissionFee" />
+    <result column="BankCommissionFee" jdbcType="DECIMAL" property="bankCommissionFee" />
+    <result column="BankCommissionRate" jdbcType="DECIMAL" property="bankCommissionRate" />
+    <result column="PayPlatformRate" jdbcType="DECIMAL" property="payPlatformRate" />
+    <result column="PayPlatformFee" jdbcType="DECIMAL" property="payPlatformFee" />
+    <result column="NetAmount" jdbcType="DECIMAL" property="netAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Store_Id, Station_Id, Operator_Id, Partner, PartnerAccount, PartnerOrderID, PlatformTradeAccount, 
+    PlatformTradeNumber, Code, Amount, State, Subject, Remark, CreateUser, CreateDate, 
+    CancelUser, CancelDate, Trans_Id, ZhuiHuOrderId, AlipayState, PlatformPartnerID, 
+    PartnerID, PlatformBuyerUserId, Platform, mcoupon, BusinessDate, OrginalPayId, pcoupon, 
+    LiquidatorCommissionRate, LiquidatorCommissionFee, BankCommissionFee, BankCommissionRate, 
+    PayPlatformRate, PayPlatformFee, NetAmount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.Pay">
+    insert into Pay (ID, Store_Id, Station_Id, 
+      Operator_Id, Partner, PartnerAccount, 
+      PartnerOrderID, PlatformTradeAccount, PlatformTradeNumber, 
+      Code, Amount, State, 
+      Subject, Remark, CreateUser, 
+      CreateDate, CancelUser, CancelDate, 
+      Trans_Id, ZhuiHuOrderId, AlipayState, 
+      PlatformPartnerID, PartnerID, PlatformBuyerUserId, 
+      Platform, mcoupon, BusinessDate, 
+      OrginalPayId, pcoupon, LiquidatorCommissionRate, 
+      LiquidatorCommissionFee, BankCommissionFee, 
+      BankCommissionRate, PayPlatformRate, PayPlatformFee, 
+      NetAmount)
+    values (#{ID,jdbcType=BIGINT}, #{store_Id,jdbcType=VARCHAR}, #{station_Id,jdbcType=VARCHAR}, 
+      #{operator_Id,jdbcType=VARCHAR}, #{partner,jdbcType=VARCHAR}, #{partnerAccount,jdbcType=VARCHAR}, 
+      #{partnerOrderID,jdbcType=VARCHAR}, #{platformTradeAccount,jdbcType=VARCHAR}, #{platformTradeNumber,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{state,jdbcType=INTEGER}, 
+      #{subject,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{cancelUser,jdbcType=VARCHAR}, #{cancelDate,jdbcType=TIMESTAMP}, 
+      #{trans_Id,jdbcType=VARCHAR}, #{zhuiHuOrderId,jdbcType=VARCHAR}, #{alipayState,jdbcType=INTEGER}, 
+      #{platformPartnerID,jdbcType=VARCHAR}, #{partnerID,jdbcType=INTEGER}, #{platformBuyerUserId,jdbcType=VARCHAR}, 
+      #{platform,jdbcType=VARCHAR}, #{mcoupon,jdbcType=DECIMAL}, #{businessDate,jdbcType=VARCHAR}, 
+      #{orginalPayId,jdbcType=BIGINT}, #{pcoupon,jdbcType=DECIMAL}, #{liquidatorCommissionRate,jdbcType=DECIMAL}, 
+      #{liquidatorCommissionFee,jdbcType=DECIMAL}, #{bankCommissionFee,jdbcType=DECIMAL}, 
+      #{bankCommissionRate,jdbcType=DECIMAL}, #{payPlatformRate,jdbcType=DECIMAL}, #{payPlatformFee,jdbcType=DECIMAL}, 
+      #{netAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.Pay">
+    insert into Pay
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="store_Id != null">
+        Store_Id,
+      </if>
+      <if test="station_Id != null">
+        Station_Id,
+      </if>
+      <if test="operator_Id != null">
+        Operator_Id,
+      </if>
+      <if test="partner != null">
+        Partner,
+      </if>
+      <if test="partnerAccount != null">
+        PartnerAccount,
+      </if>
+      <if test="partnerOrderID != null">
+        PartnerOrderID,
+      </if>
+      <if test="platformTradeAccount != null">
+        PlatformTradeAccount,
+      </if>
+      <if test="platformTradeNumber != null">
+        PlatformTradeNumber,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="subject != null">
+        Subject,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="cancelUser != null">
+        CancelUser,
+      </if>
+      <if test="cancelDate != null">
+        CancelDate,
+      </if>
+      <if test="trans_Id != null">
+        Trans_Id,
+      </if>
+      <if test="zhuiHuOrderId != null">
+        ZhuiHuOrderId,
+      </if>
+      <if test="alipayState != null">
+        AlipayState,
+      </if>
+      <if test="platformPartnerID != null">
+        PlatformPartnerID,
+      </if>
+      <if test="partnerID != null">
+        PartnerID,
+      </if>
+      <if test="platformBuyerUserId != null">
+        PlatformBuyerUserId,
+      </if>
+      <if test="platform != null">
+        Platform,
+      </if>
+      <if test="mcoupon != null">
+        mcoupon,
+      </if>
+      <if test="businessDate != null">
+        BusinessDate,
+      </if>
+      <if test="orginalPayId != null">
+        OrginalPayId,
+      </if>
+      <if test="pcoupon != null">
+        pcoupon,
+      </if>
+      <if test="liquidatorCommissionRate != null">
+        LiquidatorCommissionRate,
+      </if>
+      <if test="liquidatorCommissionFee != null">
+        LiquidatorCommissionFee,
+      </if>
+      <if test="bankCommissionFee != null">
+        BankCommissionFee,
+      </if>
+      <if test="bankCommissionRate != null">
+        BankCommissionRate,
+      </if>
+      <if test="payPlatformRate != null">
+        PayPlatformRate,
+      </if>
+      <if test="payPlatformFee != null">
+        PayPlatformFee,
+      </if>
+      <if test="netAmount != null">
+        NetAmount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=BIGINT},
+      </if>
+      <if test="store_Id != null">
+        #{store_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="station_Id != null">
+        #{station_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="operator_Id != null">
+        #{operator_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="partner != null">
+        #{partner,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerAccount != null">
+        #{partnerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerOrderID != null">
+        #{partnerOrderID,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTradeAccount != null">
+        #{platformTradeAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTradeNumber != null">
+        #{platformTradeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelUser != null">
+        #{cancelUser,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelDate != null">
+        #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trans_Id != null">
+        #{trans_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuiHuOrderId != null">
+        #{zhuiHuOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayState != null">
+        #{alipayState,jdbcType=INTEGER},
+      </if>
+      <if test="platformPartnerID != null">
+        #{platformPartnerID,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerID != null">
+        #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="platformBuyerUserId != null">
+        #{platformBuyerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="mcoupon != null">
+        #{mcoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalPayId != null">
+        #{orginalPayId,jdbcType=BIGINT},
+      </if>
+      <if test="pcoupon != null">
+        #{pcoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidatorCommissionRate != null">
+        #{liquidatorCommissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidatorCommissionFee != null">
+        #{liquidatorCommissionFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCommissionFee != null">
+        #{bankCommissionFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCommissionRate != null">
+        #{bankCommissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payPlatformRate != null">
+        #{payPlatformRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payPlatformFee != null">
+        #{payPlatformFee,jdbcType=DECIMAL},
+      </if>
+      <if test="netAmount != null">
+        #{netAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.Pay">
+    update Pay
+    <set>
+      <if test="store_Id != null">
+        Store_Id = #{store_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="station_Id != null">
+        Station_Id = #{station_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="operator_Id != null">
+        Operator_Id = #{operator_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="partner != null">
+        Partner = #{partner,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerAccount != null">
+        PartnerAccount = #{partnerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerOrderID != null">
+        PartnerOrderID = #{partnerOrderID,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTradeAccount != null">
+        PlatformTradeAccount = #{platformTradeAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTradeNumber != null">
+        PlatformTradeNumber = #{platformTradeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null">
+        Subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelUser != null">
+        CancelUser = #{cancelUser,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelDate != null">
+        CancelDate = #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trans_Id != null">
+        Trans_Id = #{trans_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuiHuOrderId != null">
+        ZhuiHuOrderId = #{zhuiHuOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayState != null">
+        AlipayState = #{alipayState,jdbcType=INTEGER},
+      </if>
+      <if test="platformPartnerID != null">
+        PlatformPartnerID = #{platformPartnerID,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerID != null">
+        PartnerID = #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="platformBuyerUserId != null">
+        PlatformBuyerUserId = #{platformBuyerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        Platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="mcoupon != null">
+        mcoupon = #{mcoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="businessDate != null">
+        BusinessDate = #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalPayId != null">
+        OrginalPayId = #{orginalPayId,jdbcType=BIGINT},
+      </if>
+      <if test="pcoupon != null">
+        pcoupon = #{pcoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidatorCommissionRate != null">
+        LiquidatorCommissionRate = #{liquidatorCommissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidatorCommissionFee != null">
+        LiquidatorCommissionFee = #{liquidatorCommissionFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCommissionFee != null">
+        BankCommissionFee = #{bankCommissionFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCommissionRate != null">
+        BankCommissionRate = #{bankCommissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payPlatformRate != null">
+        PayPlatformRate = #{payPlatformRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payPlatformFee != null">
+        PayPlatformFee = #{payPlatformFee,jdbcType=DECIMAL},
+      </if>
+      <if test="netAmount != null">
+        NetAmount = #{netAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.Pay">
+    update Pay
+    set Store_Id = #{store_Id,jdbcType=VARCHAR},
+      Station_Id = #{station_Id,jdbcType=VARCHAR},
+      Operator_Id = #{operator_Id,jdbcType=VARCHAR},
+      Partner = #{partner,jdbcType=VARCHAR},
+      PartnerAccount = #{partnerAccount,jdbcType=VARCHAR},
+      PartnerOrderID = #{partnerOrderID,jdbcType=VARCHAR},
+      PlatformTradeAccount = #{platformTradeAccount,jdbcType=VARCHAR},
+      PlatformTradeNumber = #{platformTradeNumber,jdbcType=VARCHAR},
+      Code = #{code,jdbcType=VARCHAR},
+      Amount = #{amount,jdbcType=DECIMAL},
+      State = #{state,jdbcType=INTEGER},
+      Subject = #{subject,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      CancelUser = #{cancelUser,jdbcType=VARCHAR},
+      CancelDate = #{cancelDate,jdbcType=TIMESTAMP},
+      Trans_Id = #{trans_Id,jdbcType=VARCHAR},
+      ZhuiHuOrderId = #{zhuiHuOrderId,jdbcType=VARCHAR},
+      AlipayState = #{alipayState,jdbcType=INTEGER},
+      PlatformPartnerID = #{platformPartnerID,jdbcType=VARCHAR},
+      PartnerID = #{partnerID,jdbcType=INTEGER},
+      PlatformBuyerUserId = #{platformBuyerUserId,jdbcType=VARCHAR},
+      Platform = #{platform,jdbcType=VARCHAR},
+      mcoupon = #{mcoupon,jdbcType=DECIMAL},
+      BusinessDate = #{businessDate,jdbcType=VARCHAR},
+      OrginalPayId = #{orginalPayId,jdbcType=BIGINT},
+      pcoupon = #{pcoupon,jdbcType=DECIMAL},
+      LiquidatorCommissionRate = #{liquidatorCommissionRate,jdbcType=DECIMAL},
+      LiquidatorCommissionFee = #{liquidatorCommissionFee,jdbcType=DECIMAL},
+      BankCommissionFee = #{bankCommissionFee,jdbcType=DECIMAL},
+      BankCommissionRate = #{bankCommissionRate,jdbcType=DECIMAL},
+      PayPlatformRate = #{payPlatformRate,jdbcType=DECIMAL},
+      PayPlatformFee = #{payPlatformFee,jdbcType=DECIMAL},
+      NetAmount = #{netAmount,jdbcType=DECIMAL}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.Pay">
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="Store_Id" jdbcType="VARCHAR" property="store_Id" />
+    <result column="Station_Id" jdbcType="VARCHAR" property="station_Id" />
+    <result column="Operator_Id" jdbcType="VARCHAR" property="operator_Id" />
+    <result column="Partner" jdbcType="VARCHAR" property="partner" />
+    <result column="PartnerAccount" jdbcType="VARCHAR" property="partnerAccount" />
+    <result column="PartnerOrderID" jdbcType="VARCHAR" property="partnerOrderID" />
+    <result column="PlatformTradeAccount" jdbcType="VARCHAR" property="platformTradeAccount" />
+    <result column="PlatformTradeNumber" jdbcType="VARCHAR" property="platformTradeNumber" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="Subject" jdbcType="VARCHAR" property="subject" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CancelUser" jdbcType="VARCHAR" property="cancelUser" />
+    <result column="CancelDate" jdbcType="TIMESTAMP" property="cancelDate" />
+    <result column="Trans_Id" jdbcType="VARCHAR" property="trans_Id" />
+    <result column="ZhuiHuOrderId" jdbcType="VARCHAR" property="zhuiHuOrderId" />
+    <result column="AlipayState" jdbcType="INTEGER" property="alipayState" />
+    <result column="PlatformPartnerID" jdbcType="VARCHAR" property="platformPartnerID" />
+    <result column="PartnerID" jdbcType="INTEGER" property="partnerID" />
+    <result column="PlatformBuyerUserId" jdbcType="VARCHAR" property="platformBuyerUserId" />
+    <result column="Platform" jdbcType="VARCHAR" property="platform" />
+    <result column="mcoupon" jdbcType="DECIMAL" property="mcoupon" />
+    <result column="BusinessDate" jdbcType="VARCHAR" property="businessDate" />
+    <result column="OrginalPayId" jdbcType="BIGINT" property="orginalPayId" />
+    <result column="pcoupon" jdbcType="DECIMAL" property="pcoupon" />
+    <result column="LiquidatorCommissionRate" jdbcType="DECIMAL" property="liquidatorCommissionRate" />
+    <result column="LiquidatorCommissionFee" jdbcType="DECIMAL" property="liquidatorCommissionFee" />
+    <result column="BankCommissionFee" jdbcType="DECIMAL" property="bankCommissionFee" />
+    <result column="BankCommissionRate" jdbcType="DECIMAL" property="bankCommissionRate" />
+    <result column="PayPlatformRate" jdbcType="DECIMAL" property="payPlatformRate" />
+    <result column="PayPlatformFee" jdbcType="DECIMAL" property="payPlatformFee" />
+    <result column="NetAmount" jdbcType="DECIMAL" property="netAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Store_Id, Station_Id, Operator_Id, Partner, PartnerAccount, PartnerOrderID, PlatformTradeAccount, 
+    PlatformTradeNumber, Code, Amount, State, Subject, Remark, CreateUser, CreateDate, 
+    CancelUser, CancelDate, Trans_Id, ZhuiHuOrderId, AlipayState, PlatformPartnerID, 
+    PartnerID, PlatformBuyerUserId, Platform, mcoupon, BusinessDate, OrginalPayId, pcoupon, 
+    LiquidatorCommissionRate, LiquidatorCommissionFee, BankCommissionFee, BankCommissionRate, 
+    PayPlatformRate, PayPlatformFee, NetAmount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.Pay">
+    insert into Pay (ID, Store_Id, Station_Id, 
+      Operator_Id, Partner, PartnerAccount, 
+      PartnerOrderID, PlatformTradeAccount, PlatformTradeNumber, 
+      Code, Amount, State, 
+      Subject, Remark, CreateUser, 
+      CreateDate, CancelUser, CancelDate, 
+      Trans_Id, ZhuiHuOrderId, AlipayState, 
+      PlatformPartnerID, PartnerID, PlatformBuyerUserId, 
+      Platform, mcoupon, BusinessDate, 
+      OrginalPayId, pcoupon, LiquidatorCommissionRate, 
+      LiquidatorCommissionFee, BankCommissionFee, 
+      BankCommissionRate, PayPlatformRate, PayPlatformFee, 
+      NetAmount)
+    values (#{ID,jdbcType=BIGINT}, #{store_Id,jdbcType=VARCHAR}, #{station_Id,jdbcType=VARCHAR}, 
+      #{operator_Id,jdbcType=VARCHAR}, #{partner,jdbcType=VARCHAR}, #{partnerAccount,jdbcType=VARCHAR}, 
+      #{partnerOrderID,jdbcType=VARCHAR}, #{platformTradeAccount,jdbcType=VARCHAR}, #{platformTradeNumber,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{state,jdbcType=INTEGER}, 
+      #{subject,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{cancelUser,jdbcType=VARCHAR}, #{cancelDate,jdbcType=TIMESTAMP}, 
+      #{trans_Id,jdbcType=VARCHAR}, #{zhuiHuOrderId,jdbcType=VARCHAR}, #{alipayState,jdbcType=INTEGER}, 
+      #{platformPartnerID,jdbcType=VARCHAR}, #{partnerID,jdbcType=INTEGER}, #{platformBuyerUserId,jdbcType=VARCHAR}, 
+      #{platform,jdbcType=VARCHAR}, #{mcoupon,jdbcType=DECIMAL}, #{businessDate,jdbcType=VARCHAR}, 
+      #{orginalPayId,jdbcType=BIGINT}, #{pcoupon,jdbcType=DECIMAL}, #{liquidatorCommissionRate,jdbcType=DECIMAL}, 
+      #{liquidatorCommissionFee,jdbcType=DECIMAL}, #{bankCommissionFee,jdbcType=DECIMAL}, 
+      #{bankCommissionRate,jdbcType=DECIMAL}, #{payPlatformRate,jdbcType=DECIMAL}, #{payPlatformFee,jdbcType=DECIMAL}, 
+      #{netAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.Pay">
+    insert into Pay
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="store_Id != null">
+        Store_Id,
+      </if>
+      <if test="station_Id != null">
+        Station_Id,
+      </if>
+      <if test="operator_Id != null">
+        Operator_Id,
+      </if>
+      <if test="partner != null">
+        Partner,
+      </if>
+      <if test="partnerAccount != null">
+        PartnerAccount,
+      </if>
+      <if test="partnerOrderID != null">
+        PartnerOrderID,
+      </if>
+      <if test="platformTradeAccount != null">
+        PlatformTradeAccount,
+      </if>
+      <if test="platformTradeNumber != null">
+        PlatformTradeNumber,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="subject != null">
+        Subject,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="cancelUser != null">
+        CancelUser,
+      </if>
+      <if test="cancelDate != null">
+        CancelDate,
+      </if>
+      <if test="trans_Id != null">
+        Trans_Id,
+      </if>
+      <if test="zhuiHuOrderId != null">
+        ZhuiHuOrderId,
+      </if>
+      <if test="alipayState != null">
+        AlipayState,
+      </if>
+      <if test="platformPartnerID != null">
+        PlatformPartnerID,
+      </if>
+      <if test="partnerID != null">
+        PartnerID,
+      </if>
+      <if test="platformBuyerUserId != null">
+        PlatformBuyerUserId,
+      </if>
+      <if test="platform != null">
+        Platform,
+      </if>
+      <if test="mcoupon != null">
+        mcoupon,
+      </if>
+      <if test="businessDate != null">
+        BusinessDate,
+      </if>
+      <if test="orginalPayId != null">
+        OrginalPayId,
+      </if>
+      <if test="pcoupon != null">
+        pcoupon,
+      </if>
+      <if test="liquidatorCommissionRate != null">
+        LiquidatorCommissionRate,
+      </if>
+      <if test="liquidatorCommissionFee != null">
+        LiquidatorCommissionFee,
+      </if>
+      <if test="bankCommissionFee != null">
+        BankCommissionFee,
+      </if>
+      <if test="bankCommissionRate != null">
+        BankCommissionRate,
+      </if>
+      <if test="payPlatformRate != null">
+        PayPlatformRate,
+      </if>
+      <if test="payPlatformFee != null">
+        PayPlatformFee,
+      </if>
+      <if test="netAmount != null">
+        NetAmount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=BIGINT},
+      </if>
+      <if test="store_Id != null">
+        #{store_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="station_Id != null">
+        #{station_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="operator_Id != null">
+        #{operator_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="partner != null">
+        #{partner,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerAccount != null">
+        #{partnerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerOrderID != null">
+        #{partnerOrderID,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTradeAccount != null">
+        #{platformTradeAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTradeNumber != null">
+        #{platformTradeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null">
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelUser != null">
+        #{cancelUser,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelDate != null">
+        #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trans_Id != null">
+        #{trans_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuiHuOrderId != null">
+        #{zhuiHuOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayState != null">
+        #{alipayState,jdbcType=INTEGER},
+      </if>
+      <if test="platformPartnerID != null">
+        #{platformPartnerID,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerID != null">
+        #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="platformBuyerUserId != null">
+        #{platformBuyerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="mcoupon != null">
+        #{mcoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="businessDate != null">
+        #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalPayId != null">
+        #{orginalPayId,jdbcType=BIGINT},
+      </if>
+      <if test="pcoupon != null">
+        #{pcoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidatorCommissionRate != null">
+        #{liquidatorCommissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidatorCommissionFee != null">
+        #{liquidatorCommissionFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCommissionFee != null">
+        #{bankCommissionFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCommissionRate != null">
+        #{bankCommissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payPlatformRate != null">
+        #{payPlatformRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payPlatformFee != null">
+        #{payPlatformFee,jdbcType=DECIMAL},
+      </if>
+      <if test="netAmount != null">
+        #{netAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.Pay">
+    update Pay
+    <set>
+      <if test="store_Id != null">
+        Store_Id = #{store_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="station_Id != null">
+        Station_Id = #{station_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="operator_Id != null">
+        Operator_Id = #{operator_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="partner != null">
+        Partner = #{partner,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerAccount != null">
+        PartnerAccount = #{partnerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerOrderID != null">
+        PartnerOrderID = #{partnerOrderID,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTradeAccount != null">
+        PlatformTradeAccount = #{platformTradeAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="platformTradeNumber != null">
+        PlatformTradeNumber = #{platformTradeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null">
+        Subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelUser != null">
+        CancelUser = #{cancelUser,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelDate != null">
+        CancelDate = #{cancelDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trans_Id != null">
+        Trans_Id = #{trans_Id,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuiHuOrderId != null">
+        ZhuiHuOrderId = #{zhuiHuOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayState != null">
+        AlipayState = #{alipayState,jdbcType=INTEGER},
+      </if>
+      <if test="platformPartnerID != null">
+        PlatformPartnerID = #{platformPartnerID,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerID != null">
+        PartnerID = #{partnerID,jdbcType=INTEGER},
+      </if>
+      <if test="platformBuyerUserId != null">
+        PlatformBuyerUserId = #{platformBuyerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        Platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="mcoupon != null">
+        mcoupon = #{mcoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="businessDate != null">
+        BusinessDate = #{businessDate,jdbcType=VARCHAR},
+      </if>
+      <if test="orginalPayId != null">
+        OrginalPayId = #{orginalPayId,jdbcType=BIGINT},
+      </if>
+      <if test="pcoupon != null">
+        pcoupon = #{pcoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidatorCommissionRate != null">
+        LiquidatorCommissionRate = #{liquidatorCommissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidatorCommissionFee != null">
+        LiquidatorCommissionFee = #{liquidatorCommissionFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCommissionFee != null">
+        BankCommissionFee = #{bankCommissionFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCommissionRate != null">
+        BankCommissionRate = #{bankCommissionRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payPlatformRate != null">
+        PayPlatformRate = #{payPlatformRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payPlatformFee != null">
+        PayPlatformFee = #{payPlatformFee,jdbcType=DECIMAL},
+      </if>
+      <if test="netAmount != null">
+        NetAmount = #{netAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.Pay">
+    update Pay
+    set Store_Id = #{store_Id,jdbcType=VARCHAR},
+      Station_Id = #{station_Id,jdbcType=VARCHAR},
+      Operator_Id = #{operator_Id,jdbcType=VARCHAR},
+      Partner = #{partner,jdbcType=VARCHAR},
+      PartnerAccount = #{partnerAccount,jdbcType=VARCHAR},
+      PartnerOrderID = #{partnerOrderID,jdbcType=VARCHAR},
+      PlatformTradeAccount = #{platformTradeAccount,jdbcType=VARCHAR},
+      PlatformTradeNumber = #{platformTradeNumber,jdbcType=VARCHAR},
+      Code = #{code,jdbcType=VARCHAR},
+      Amount = #{amount,jdbcType=DECIMAL},
+      State = #{state,jdbcType=INTEGER},
+      Subject = #{subject,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      CancelUser = #{cancelUser,jdbcType=VARCHAR},
+      CancelDate = #{cancelDate,jdbcType=TIMESTAMP},
+      Trans_Id = #{trans_Id,jdbcType=VARCHAR},
+      ZhuiHuOrderId = #{zhuiHuOrderId,jdbcType=VARCHAR},
+      AlipayState = #{alipayState,jdbcType=INTEGER},
+      PlatformPartnerID = #{platformPartnerID,jdbcType=VARCHAR},
+      PartnerID = #{partnerID,jdbcType=INTEGER},
+      PlatformBuyerUserId = #{platformBuyerUserId,jdbcType=VARCHAR},
+      Platform = #{platform,jdbcType=VARCHAR},
+      mcoupon = #{mcoupon,jdbcType=DECIMAL},
+      BusinessDate = #{businessDate,jdbcType=VARCHAR},
+      OrginalPayId = #{orginalPayId,jdbcType=BIGINT},
+      pcoupon = #{pcoupon,jdbcType=DECIMAL},
+      LiquidatorCommissionRate = #{liquidatorCommissionRate,jdbcType=DECIMAL},
+      LiquidatorCommissionFee = #{liquidatorCommissionFee,jdbcType=DECIMAL},
+      BankCommissionFee = #{bankCommissionFee,jdbcType=DECIMAL},
+      BankCommissionRate = #{bankCommissionRate,jdbcType=DECIMAL},
+      PayPlatformRate = #{payPlatformRate,jdbcType=DECIMAL},
+      PayPlatformFee = #{payPlatformFee,jdbcType=DECIMAL},
+      NetAmount = #{netAmount,jdbcType=DECIMAL}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+</mapper>

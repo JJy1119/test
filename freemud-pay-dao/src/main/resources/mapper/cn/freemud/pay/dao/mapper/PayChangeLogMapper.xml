@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.freemud.pay.dao.mapper.PayChangeLogMapper">
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayChangeLog">
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="PayId" jdbcType="BIGINT" property="payId" />
+    <result column="PartnerOrderID" jdbcType="VARCHAR" property="partnerOrderID" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Action" jdbcType="VARCHAR" property="action" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="EditUser" jdbcType="VARCHAR" property="editUser" />
+    <result column="EditDate" jdbcType="TIMESTAMP" property="editDate" />
+    <result column="FundChanged" jdbcType="CHAR" property="fundChanged" />
+    <result column="RefundId" jdbcType="VARCHAR" property="refundId" />
+    <result column="OperatorId" jdbcType="VARCHAR" property="operatorId" />
+    <result column="RefundPayId" jdbcType="BIGINT" property="refundPayId" />
+    <result column="StoreId" jdbcType="VARCHAR" property="storeId" />
+    <result column="StationId" jdbcType="VARCHAR" property="stationId" />
+    <result column="TryTimes" jdbcType="SMALLINT" property="tryTimes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PayId, PartnerOrderID, Code, Action, Amount, State, CreateUser, CreateDate, EditUser, 
+    EditDate, FundChanged, RefundId, OperatorId, RefundPayId, StoreId, StationId, TryTimes
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_ChangeLog
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay_ChangeLog
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayChangeLog">
+    insert into Pay_ChangeLog (ID, PayId, PartnerOrderID, 
+      Code, Action, Amount, 
+      State, CreateUser, CreateDate, 
+      EditUser, EditDate, FundChanged, 
+      RefundId, OperatorId, RefundPayId, 
+      StoreId, StationId, TryTimes
+      )
+    values (#{ID,jdbcType=BIGINT}, #{payId,jdbcType=BIGINT}, #{partnerOrderID,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, 
+      #{state,jdbcType=INTEGER}, #{createUser,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{editUser,jdbcType=VARCHAR}, #{editDate,jdbcType=TIMESTAMP}, #{fundChanged,jdbcType=CHAR}, 
+      #{refundId,jdbcType=VARCHAR}, #{operatorId,jdbcType=VARCHAR}, #{refundPayId,jdbcType=BIGINT}, 
+      #{storeId,jdbcType=VARCHAR}, #{stationId,jdbcType=VARCHAR}, #{tryTimes,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayChangeLog">
+    insert into Pay_ChangeLog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="payId != null">
+        PayId,
+      </if>
+      <if test="partnerOrderID != null">
+        PartnerOrderID,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="action != null">
+        Action,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="editUser != null">
+        EditUser,
+      </if>
+      <if test="editDate != null">
+        EditDate,
+      </if>
+      <if test="fundChanged != null">
+        FundChanged,
+      </if>
+      <if test="refundId != null">
+        RefundId,
+      </if>
+      <if test="operatorId != null">
+        OperatorId,
+      </if>
+      <if test="refundPayId != null">
+        RefundPayId,
+      </if>
+      <if test="storeId != null">
+        StoreId,
+      </if>
+      <if test="stationId != null">
+        StationId,
+      </if>
+      <if test="tryTimes != null">
+        TryTimes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=BIGINT},
+      </if>
+      <if test="payId != null">
+        #{payId,jdbcType=BIGINT},
+      </if>
+      <if test="partnerOrderID != null">
+        #{partnerOrderID,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        #{editUser,jdbcType=VARCHAR},
+      </if>
+      <if test="editDate != null">
+        #{editDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundChanged != null">
+        #{fundChanged,jdbcType=CHAR},
+      </if>
+      <if test="refundId != null">
+        #{refundId,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPayId != null">
+        #{refundPayId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=VARCHAR},
+      </if>
+      <if test="tryTimes != null">
+        #{tryTimes,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayChangeLog">
+    update Pay_ChangeLog
+    <set>
+      <if test="payId != null">
+        PayId = #{payId,jdbcType=BIGINT},
+      </if>
+      <if test="partnerOrderID != null">
+        PartnerOrderID = #{partnerOrderID,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        Action = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        EditUser = #{editUser,jdbcType=VARCHAR},
+      </if>
+      <if test="editDate != null">
+        EditDate = #{editDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundChanged != null">
+        FundChanged = #{fundChanged,jdbcType=CHAR},
+      </if>
+      <if test="refundId != null">
+        RefundId = #{refundId,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorId != null">
+        OperatorId = #{operatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPayId != null">
+        RefundPayId = #{refundPayId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        StoreId = #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="stationId != null">
+        StationId = #{stationId,jdbcType=VARCHAR},
+      </if>
+      <if test="tryTimes != null">
+        TryTimes = #{tryTimes,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayChangeLog">
+    update Pay_ChangeLog
+    set PayId = #{payId,jdbcType=BIGINT},
+      PartnerOrderID = #{partnerOrderID,jdbcType=VARCHAR},
+      Code = #{code,jdbcType=VARCHAR},
+      Action = #{action,jdbcType=VARCHAR},
+      Amount = #{amount,jdbcType=DECIMAL},
+      State = #{state,jdbcType=INTEGER},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      EditUser = #{editUser,jdbcType=VARCHAR},
+      EditDate = #{editDate,jdbcType=TIMESTAMP},
+      FundChanged = #{fundChanged,jdbcType=CHAR},
+      RefundId = #{refundId,jdbcType=VARCHAR},
+      OperatorId = #{operatorId,jdbcType=VARCHAR},
+      RefundPayId = #{refundPayId,jdbcType=BIGINT},
+      StoreId = #{storeId,jdbcType=VARCHAR},
+      StationId = #{stationId,jdbcType=VARCHAR},
+      TryTimes = #{tryTimes,jdbcType=SMALLINT}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.freemud.pay.dao.model.PayChangeLog">
+    <id column="ID" jdbcType="BIGINT" property="ID" />
+    <result column="PayId" jdbcType="BIGINT" property="payId" />
+    <result column="PartnerOrderID" jdbcType="VARCHAR" property="partnerOrderID" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Action" jdbcType="VARCHAR" property="action" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+    <result column="CreateUser" jdbcType="VARCHAR" property="createUser" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="EditUser" jdbcType="VARCHAR" property="editUser" />
+    <result column="EditDate" jdbcType="TIMESTAMP" property="editDate" />
+    <result column="FundChanged" jdbcType="CHAR" property="fundChanged" />
+    <result column="RefundId" jdbcType="VARCHAR" property="refundId" />
+    <result column="OperatorId" jdbcType="VARCHAR" property="operatorId" />
+    <result column="RefundPayId" jdbcType="BIGINT" property="refundPayId" />
+    <result column="StoreId" jdbcType="VARCHAR" property="storeId" />
+    <result column="StationId" jdbcType="VARCHAR" property="stationId" />
+    <result column="TryTimes" jdbcType="SMALLINT" property="tryTimes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PayId, PartnerOrderID, Code, Action, Amount, State, CreateUser, CreateDate, EditUser, 
+    EditDate, FundChanged, RefundId, OperatorId, RefundPayId, StoreId, StationId, TryTimes
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Pay_ChangeLog
+    where ID = #{ID,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Pay_ChangeLog
+    where ID = #{ID,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.freemud.pay.dao.model.PayChangeLog">
+    insert into Pay_ChangeLog (ID, PayId, PartnerOrderID, 
+      Code, Action, Amount, 
+      State, CreateUser, CreateDate, 
+      EditUser, EditDate, FundChanged, 
+      RefundId, OperatorId, RefundPayId, 
+      StoreId, StationId, TryTimes
+      )
+    values (#{ID,jdbcType=BIGINT}, #{payId,jdbcType=BIGINT}, #{partnerOrderID,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, 
+      #{state,jdbcType=INTEGER}, #{createUser,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{editUser,jdbcType=VARCHAR}, #{editDate,jdbcType=TIMESTAMP}, #{fundChanged,jdbcType=CHAR}, 
+      #{refundId,jdbcType=VARCHAR}, #{operatorId,jdbcType=VARCHAR}, #{refundPayId,jdbcType=BIGINT}, 
+      #{storeId,jdbcType=VARCHAR}, #{stationId,jdbcType=VARCHAR}, #{tryTimes,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.freemud.pay.dao.model.PayChangeLog">
+    insert into Pay_ChangeLog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="payId != null">
+        PayId,
+      </if>
+      <if test="partnerOrderID != null">
+        PartnerOrderID,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="action != null">
+        Action,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="createUser != null">
+        CreateUser,
+      </if>
+      <if test="createDate != null">
+        CreateDate,
+      </if>
+      <if test="editUser != null">
+        EditUser,
+      </if>
+      <if test="editDate != null">
+        EditDate,
+      </if>
+      <if test="fundChanged != null">
+        FundChanged,
+      </if>
+      <if test="refundId != null">
+        RefundId,
+      </if>
+      <if test="operatorId != null">
+        OperatorId,
+      </if>
+      <if test="refundPayId != null">
+        RefundPayId,
+      </if>
+      <if test="storeId != null">
+        StoreId,
+      </if>
+      <if test="stationId != null">
+        StationId,
+      </if>
+      <if test="tryTimes != null">
+        TryTimes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=BIGINT},
+      </if>
+      <if test="payId != null">
+        #{payId,jdbcType=BIGINT},
+      </if>
+      <if test="partnerOrderID != null">
+        #{partnerOrderID,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        #{editUser,jdbcType=VARCHAR},
+      </if>
+      <if test="editDate != null">
+        #{editDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundChanged != null">
+        #{fundChanged,jdbcType=CHAR},
+      </if>
+      <if test="refundId != null">
+        #{refundId,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPayId != null">
+        #{refundPayId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=VARCHAR},
+      </if>
+      <if test="tryTimes != null">
+        #{tryTimes,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.freemud.pay.dao.model.PayChangeLog">
+    update Pay_ChangeLog
+    <set>
+      <if test="payId != null">
+        PayId = #{payId,jdbcType=BIGINT},
+      </if>
+      <if test="partnerOrderID != null">
+        PartnerOrderID = #{partnerOrderID,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        Action = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        CreateUser = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editUser != null">
+        EditUser = #{editUser,jdbcType=VARCHAR},
+      </if>
+      <if test="editDate != null">
+        EditDate = #{editDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundChanged != null">
+        FundChanged = #{fundChanged,jdbcType=CHAR},
+      </if>
+      <if test="refundId != null">
+        RefundId = #{refundId,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorId != null">
+        OperatorId = #{operatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPayId != null">
+        RefundPayId = #{refundPayId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        StoreId = #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="stationId != null">
+        StationId = #{stationId,jdbcType=VARCHAR},
+      </if>
+      <if test="tryTimes != null">
+        TryTimes = #{tryTimes,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.freemud.pay.dao.model.PayChangeLog">
+    update Pay_ChangeLog
+    set PayId = #{payId,jdbcType=BIGINT},
+      PartnerOrderID = #{partnerOrderID,jdbcType=VARCHAR},
+      Code = #{code,jdbcType=VARCHAR},
+      Action = #{action,jdbcType=VARCHAR},
+      Amount = #{amount,jdbcType=DECIMAL},
+      State = #{state,jdbcType=INTEGER},
+      CreateUser = #{createUser,jdbcType=VARCHAR},
+      CreateDate = #{createDate,jdbcType=TIMESTAMP},
+      EditUser = #{editUser,jdbcType=VARCHAR},
+      EditDate = #{editDate,jdbcType=TIMESTAMP},
+      FundChanged = #{fundChanged,jdbcType=CHAR},
+      RefundId = #{refundId,jdbcType=VARCHAR},
+      OperatorId = #{operatorId,jdbcType=VARCHAR},
+      RefundPayId = #{refundPayId,jdbcType=BIGINT},
+      StoreId = #{storeId,jdbcType=VARCHAR},
+      StationId = #{stationId,jdbcType=VARCHAR},
+      TryTimes = #{tryTimes,jdbcType=SMALLINT}
+    where ID = #{ID,jdbcType=BIGINT}
+  </update>
+</mapper>
